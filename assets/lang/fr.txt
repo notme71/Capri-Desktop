@@ -712,3 +712,25 @@ Capri n'a pas pu terminer. Tes fichiers sont toujours là.
 Je n'entends aucun son ! Vérifie ton micro dans Chat, Microphone, et que Windows autorise les applications de bureau à l'utiliser.
 > Whisper isn't working, so I fell back to Windows' own ears. The reason is in voice-log.txt.
 Whisper ne fonctionne pas, alors j'ai utilisé les oreilles de Windows. La raison est dans voice-log.txt.
+> Download better ears…
+Télécharger de meilleures oreilles…
+> Cancel the download
+Annuler le téléchargement
+> Downloading better ears… {0}%
+Téléchargement de meilleures oreilles… {0} %
+> My better ears are already here!
+Mes meilleures oreilles sont déjà là !
+> Whisper, a speech recognizer that runs on your PC ({0} MB), from github.com
+Whisper, un outil de reconnaissance vocale qui tourne sur ton PC ({0} Mo), depuis github.com
+> A speech model that understands many languages ({0} MB), from huggingface.co
+Un modèle vocal qui comprend de nombreuses langues ({0} Mo), depuis huggingface.co
+> This downloads once from the internet:\n\n{0}\nThey are checked against known fingerprints before they are used. Nothing you say is ever sent anywhere. They are saved in {1}.\n\nDownload now?
+Ceci télécharge une seule fois depuis Internet :\n\n{0}\nIls sont vérifiés avec des empreintes connues avant d'être utilisés. Rien de ce que tu dis n'est envoyé nulle part. Ils sont enregistrés dans {1}.\n\nTélécharger maintenant ?
+> Downloading my better ears. This can take a few minutes.
+Je télécharge mes meilleures oreilles. Ça peut prendre quelques minutes.
+> Better ears are in! I should hear you much better now.
+Les meilleures oreilles sont là ! Je devrais mieux t'entendre maintenant.
+> Download cancelled.
+Téléchargement annulé.
+> The download failed: {0}
+Le téléchargement a échoué : {0}

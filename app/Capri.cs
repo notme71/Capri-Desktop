@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
+using System.IO.Compression;
 using System.Net;
 using System.Net.Sockets;
 using System.Reflection;
@@ -337,6 +338,9 @@ namespace CapriDesktop
         private ToolStripMenuItem micItem;
         private ToolStripMenuItem micDevices;
         private ToolStripMenuItem speechStatusItem;
+        private ToolStripMenuItem earsItem;
+        private volatile bool earsBusy;
+        private volatile bool earsCancel;
         internal bool TestFailed;
 
         internal Companion(string data, EventWaitHandle signal, bool smoke)
@@ -354,6 +358,7 @@ namespace CapriDesktop
             ear.PauseSeconds = preferences.PauseSeconds;
             ear.SpeechFolder = Path.Combine(data, "speech");
             ear.Log = smoke ? "" : Path.Combine(data, "voice-log.txt");
+            ear.Language = Lang.Code;
             using (Stream image = Assembly.GetExecutingAssembly().GetManifestResourceStream("Capri.Character.png"))
             {
                 if (image == null) throw new FileNotFoundException("The original Capri artwork is missing. Rebuild with assets/capri.png.");
@@ -1292,6 +1297,9 @@ namespace CapriDesktop
             whisperItem.Checked = preferences.UseWhisper;
             whisperItem.Click += delegate { preferences.UseWhisper = !preferences.UseWhisper; ear.UseWhisper = preferences.UseWhisper; whisperItem.Checked = preferences.UseWhisper; speechStatusItem.Text = SpeechStatus(); SavePreferences(); };
             chat.DropDownItems.Add(whisperItem);
+            earsItem = new ToolStripMenuItem(Lang.T("Download better ears…"));
+            earsItem.Click += delegate { DownloadEars(); };
+            chat.DropDownItems.Add(earsItem);
             ToolStripMenuItem memoryMenu = new ToolStripMenuItem(Lang.T("Memory"));
             ToolStripMenuItem memoryItem = new ToolStripMenuItem(Lang.T("Let her remember things"));
             memoryItem.Checked = preferences.MemoryOn;
@@ -1481,7 +1489,56 @@ namespace CapriDesktop
             });
         }
 
-        private string SpeechStatus() { return "Ears: " + (preferences.UseWhisper ? Whisper.Describe(ear.SpeechFolder) : "Windows' own (Whisper off)"); }
+        // Asks first, then fetches whatever is missing in the background. Clicking the menu item again while it runs cancels it.
+        internal void DownloadEars()
+        {
+            if (earsBusy) { earsCancel = true; return; }
+            string folder = ear.SpeechFolder;
+            bool needProgram = EarsDownload.NeedProgram(folder);
+            bool needModel = EarsDownload.NeedModel(folder);
+            if (!needProgram && !needModel) { Say("My better ears are already here!", true); return; }
+            string what = (needProgram ? Lang.F("Whisper, a speech recognizer that runs on your PC ({0} MB), from github.com", (EarsDownload.ProgramBytes + 999999) / 1000000) + "\n" : "")
+                + (needModel ? Lang.F("A speech model that understands many languages ({0} MB), from huggingface.co", (EarsDownload.ModelBytes + 999999) / 1000000) + "\n" : "");
+            if (!testing && MessageBox.Show(Lang.F("This downloads once from the internet:\n\n{0}\nThey are checked against known fingerprints before they are used. Nothing you say is ever sent anywhere. They are saved in {1}.\n\nDownload now?", what, folder), "Capri", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+            earsBusy = true;
+            earsCancel = false;
+            earsItem.Text = Lang.T("Cancel the download");
+            Say("Downloading my better ears. This can take a few minutes.", true);
+            ThreadPool.QueueUserWorkItem(delegate
+            {
+                string failure = null;
+                int lastShown = -1;
+                int shownQuarter = 0;
+                try
+                {
+                    EarsDownload.Install(folder, delegate(int percent)
+                    {
+                        if (percent == lastShown || !IsHandleCreated) return;
+                        lastShown = percent;
+                        BeginInvoke((Action)delegate
+                        {
+                            if (!earsBusy) return;
+                            earsItem.Text = Lang.F("Downloading better ears… {0}%", percent);
+                            if (percent / 25 > shownQuarter && percent < 99) { shownQuarter = percent / 25; Say(Lang.F("Downloading better ears… {0}%", percent), true, 3); }
+                        });
+                    }, delegate { return earsCancel; });
+                }
+                catch (OperationCanceledException) { failure = ""; }
+                catch (Exception error) { failure = error.Message; }
+                if (!IsHandleCreated) return;
+                BeginInvoke((Action)delegate
+                {
+                    earsBusy = false;
+                    earsItem.Text = Lang.T("Download better ears…");
+                    speechStatusItem.Text = SpeechStatus();
+                    if (failure == null) Say("Better ears are in! I should hear you much better now.", true);
+                    else if (failure.Length == 0) Say("Download cancelled.", true);
+                    else Say(Lang.F("The download failed: {0}", failure), true);
+                });
+            });
+        }
+
+        private string SpeechStatus() { return "Ears: " + (preferences.UseWhisper ? Whisper.Describe(ear.SpeechFolder, ear.Language) : "Windows' own (Whisper off)"); }
 
         // The microphone list is read each time the menu opens, since headsets come and go.
         internal void RebuildMics()
@@ -1743,7 +1800,7 @@ namespace CapriDesktop
                 ListeningOver();
                 return;
             }
-            if (!Ear.Available && !(preferences.UseWhisper && Whisper.Available(ear.SpeechFolder))) { Say("I have no ears! Add an English speech pack in Windows settings.", true); return; }
+            if (!Ear.Available && !(preferences.UseWhisper && Whisper.Available(ear.SpeechFolder, ear.Language))) { Say("I have no ears! Add an English speech pack in Windows settings.", true); return; }
             if (ChatOpen()) chat.SetListening(true);
             ShowCut("eyes", 9);
             if (mic != null) mic.Listening = true;
@@ -5034,6 +5091,74 @@ namespace CapriDesktop
                             Lang.Load("en", langDir);
                             if (BrainText().Contains("Write every reply in")) throw new Exception("English was given a language instruction.");
                             checks.Add("PASS the model is told which language to answer in, and not for English");
+                            string earsTest = Path.Combine(output, "ears-test");
+                            if (Directory.Exists(earsTest)) Directory.Delete(earsTest, true);
+                            Directory.CreateDirectory(earsTest);
+                            string fakeZip = Path.Combine(earsTest, "fake.zip");
+                            using (ZipArchive made = ZipFile.Open(fakeZip, ZipArchiveMode.Create))
+                                foreach (string entryName in new string[] { "Release/whisper-cli.exe", "Release/whisper.dll", "Release/ggml.dll", "Release/test-vad.exe", "../../evil.dll" })
+                                    using (StreamWriter entryText = new StreamWriter(made.CreateEntry(entryName).Open())) entryText.Write("fake " + entryName);
+                            string fakeModel = Path.Combine(earsTest, "fake-model.bin");
+                            File.WriteAllText(fakeModel, "pretend model bytes");
+                            long savedProgramBytes = EarsDownload.ProgramBytes, savedModelBytes = EarsDownload.ModelBytes;
+                            string savedProgramSha = EarsDownload.ProgramSha, savedModelSha = EarsDownload.ModelSha;
+                            EarsDownload.ProgramBytes = new FileInfo(fakeZip).Length;
+                            EarsDownload.ProgramSha = EarsDownload.Sha256(fakeZip);
+                            EarsDownload.ModelBytes = new FileInfo(fakeModel).Length;
+                            EarsDownload.ModelSha = EarsDownload.Sha256(fakeModel);
+                            int fetched = 0;
+                            EarsDownload.Fetch = delegate(string address, string to, Action<long> report, Func<bool> stop) { fetched++; File.Copy(address == EarsDownload.ProgramUrl ? fakeZip : fakeModel, to, true); report(new FileInfo(to).Length); };
+                            string earsFolder = Path.Combine(earsTest, "speech");
+                            int lastPercent = 0;
+                            EarsDownload.Install(earsFolder, delegate(int percent) { lastPercent = percent; }, delegate { return false; });
+                            if (Whisper.Program(earsFolder) == null || !File.Exists(Path.Combine(earsFolder, "bin", "Release", "whisper.dll")) || !File.Exists(Path.Combine(earsFolder, "models", EarsDownload.ModelName)) || fetched != 2 || lastPercent < 1) throw new Exception("The better ears were not downloaded and unpacked.");
+                            if (File.Exists(Path.Combine(earsFolder, "bin", "Release", "test-vad.exe")) || File.Exists(Path.Combine(earsFolder, "evil.dll")) || File.Exists(Path.Combine(earsTest, "evil.dll")) || File.Exists(Path.Combine(output, "evil.dll")) || Directory.GetFiles(earsFolder, "*.part").Length > 0) throw new Exception("The unpack took a file it should not, wrote outside its folder, or left a partial file.");
+                            EarsDownload.Install(earsFolder, delegate(int percent) { }, delegate { return false; });
+                            if (fetched != 2 || EarsDownload.NeedProgram(earsFolder) || EarsDownload.NeedModel(earsFolder)) throw new Exception("Better ears already in place were downloaded again.");
+                            File.Delete(Path.Combine(earsFolder, "models", EarsDownload.ModelName));
+                            EarsDownload.ModelSha = new string('0', 64);
+                            bool mismatchRefused = false;
+                            try { EarsDownload.Install(earsFolder, delegate(int percent) { }, delegate { return false; }); } catch (InvalidDataException) { mismatchRefused = true; }
+                            if (!mismatchRefused || File.Exists(Path.Combine(earsFolder, "models", EarsDownload.ModelName)) || Directory.GetFiles(earsFolder, "*.part").Length > 0) throw new Exception("A download that was not the expected file was used or left behind.");
+                            EarsDownload.ModelSha = EarsDownload.Sha256(fakeModel);
+                            bool stopped = false;
+                            try { EarsDownload.Install(earsFolder, delegate(int percent) { }, delegate { return true; }); } catch (OperationCanceledException) { stopped = true; }
+                            if (!stopped || File.Exists(Path.Combine(earsFolder, "models", EarsDownload.ModelName)) || Directory.GetFiles(earsFolder, "*.part").Length > 0) throw new Exception("Cancelling the download left a file behind.");
+                            EarsDownload.Fetch = null;
+                            int blocked = 0;
+                            foreach (string badAddress in new string[] { "http://github.com/x", "https://evil.example.com/x", "https://github.com.evil.example.com/x" })
+                            {
+                                try { EarsDownload.Download(badAddress, Path.Combine(earsTest, "never.part"), delegate(long n) { }, delegate { return false; }); } catch (InvalidOperationException) { blocked++; }
+                            }
+                            if (blocked != 3 || File.Exists(Path.Combine(earsTest, "never.part"))) throw new Exception("An address that is not one of the two allowed sites was fetched.");
+                            EarsDownload.Fetch = delegate(string address, string to, Action<long> report, Func<bool> stop) { File.Copy(address == EarsDownload.ProgramUrl ? fakeZip : fakeModel, to, true); report(new FileInfo(to).Length); };
+                            string keptFolder = ear.SpeechFolder;
+                            ear.SpeechFolder = Path.Combine(earsTest, "speech2");
+                            DownloadEars();
+                            if (!waitFor(delegate { return !earsBusy && Whisper.Available(ear.SpeechFolder); }) || earsItem.Text != Lang.T("Download better ears…") || !SpeechStatus().Contains("Whisper")) throw new Exception("The Download better ears menu item did not finish and switch to the new ears.");
+                            ear.SpeechFolder = keptFolder;
+                            EarsDownload.Fetch = null;
+                            EarsDownload.ProgramBytes = savedProgramBytes;
+                            EarsDownload.ProgramSha = savedProgramSha;
+                            EarsDownload.ModelBytes = savedModelBytes;
+                            EarsDownload.ModelSha = savedModelSha;
+                            checks.Add("PASS better ears download only the two allowed sites, are checked by size and fingerprint, unpack only what is needed, and cancel cleanly");
+                            string modelTest = Path.Combine(earsTest, "models-test");
+                            Directory.CreateDirectory(Path.Combine(modelTest, "models"));
+                            Directory.CreateDirectory(Path.Combine(modelTest, "bin", "Release"));
+                            File.WriteAllText(Path.Combine(modelTest, "bin", "Release", "whisper-cli.exe"), "x");
+                            File.WriteAllText(Path.Combine(modelTest, "models", "ggml-small.en.bin"), "x");
+                            if (Path.GetFileName(Whisper.Model(modelTest, "en")) != "ggml-small.en.bin" || Whisper.Model(modelTest, "pt") != null || Whisper.Available(modelTest, "pt") || !Whisper.Describe(modelTest, "pt").Contains("English only") || Whisper.Describe(modelTest, "en") != "Whisper (small.en)") throw new Exception("An English-only model was used for another language.");
+                            File.WriteAllText(Path.Combine(modelTest, "models", "ggml-small-q5_1.bin"), "x");
+                            File.WriteAllText(Path.Combine(modelTest, "models", "ggml-base.en.bin"), "x");
+                            if (Path.GetFileName(Whisper.Model(modelTest, "en")) != "ggml-small.en.bin" || Path.GetFileName(Whisper.Model(modelTest, "pt")) != "ggml-small-q5_1.bin" || Path.GetFileName(Whisper.Model(modelTest, "ru")) != "ggml-small-q5_1.bin" || !Whisper.Available(modelTest, "es") || Whisper.Describe(modelTest, "de") != "Whisper (small-q5_1)") throw new Exception("The model was not chosen by language.");
+                            string englishArgs = Whisper.Arguments("m.bin", "w.wav", "en");
+                            string portugueseArgs = Whisper.Arguments("m.bin", "w.wav", "pt");
+                            if (!englishArgs.Contains("-l en") || !englishArgs.Contains("--prompt") || !portugueseArgs.Contains("-l pt") || portugueseArgs.Contains("--prompt") || !portugueseArgs.Contains("-m \"m.bin\"")) throw new Exception("Whisper was not told the language.");
+                            ear.Language = "pt";
+                            if (!SpeechStatus().Contains("Windows")) throw new Exception("The status ignored the language.");
+                            ear.Language = Lang.Code;
+                            checks.Add("PASS Whisper uses a multilingual model and is told the language when she is not set to English, and keeps the English model for English");
                             Lang.Load("pl", langDir);
                             foreach (string[] choice in Lang.Choices)
                             {
@@ -6614,24 +6739,47 @@ namespace CapriDesktop
             return null;
         }
 
-        // The model to use: small.en if it is there, then base.en, then whatever else is in the models folder.
-        internal static string Model(string folder)
+        // The model to use. For English: small.en if it is there, then base.en, then any other. For another language only a model that
+        // is not English-only will do ("small" and "base" understand many languages, "small.en" and "base.en" do not).
+        internal static string Model(string folder, string language)
         {
             string models = Path.Combine(folder, "models");
             if (!Directory.Exists(models)) return null;
-            foreach (string name in new string[] { "ggml-small.en.bin", "ggml-base.en.bin" })
-                if (File.Exists(Path.Combine(models, name))) return Path.Combine(models, name);
-            string[] others = Directory.GetFiles(models, "ggml-*.bin");
-            return others.Length > 0 ? others[0] : null;
+            string[] all = Directory.GetFiles(models, "ggml-*.bin");
+            Array.Sort(all, StringComparer.OrdinalIgnoreCase);
+            if (language == "en")
+            {
+                foreach (string name in new string[] { "ggml-small.en.bin", "ggml-base.en.bin" })
+                    if (File.Exists(Path.Combine(models, name))) return Path.Combine(models, name);
+                return all.Length > 0 ? all[0] : null;
+            }
+            foreach (string preferred in new string[] { "ggml-small", "ggml-base", "ggml-medium", "ggml-large", "ggml-tiny" })
+                foreach (string path in all)
+                    if (Path.GetFileName(path).StartsWith(preferred, StringComparison.OrdinalIgnoreCase) && Path.GetFileName(path).IndexOf(".en", StringComparison.OrdinalIgnoreCase) < 0) return path;
+            foreach (string path in all) if (Path.GetFileName(path).IndexOf(".en", StringComparison.OrdinalIgnoreCase) < 0) return path;
+            return null;
         }
 
-        internal static bool Available(string folder) { return Runner != null || (Program(folder) != null && Model(folder) != null); }
+        internal static string Model(string folder) { return Model(folder, "en"); }
 
-        internal static string Describe(string folder)
+        // The words handed to whisper-cli. The English hint only helps in English, so other languages go without it.
+        internal static string Arguments(string model, string wave, string language)
         {
-            string model = Model(folder);
+            return "-m \"" + model + "\" -f \"" + wave + "\" -nt -np -l " + language + (language == "en" ? " --prompt \"Hello Capri.\"" : "");
+        }
+
+        internal static bool Available(string folder, string language) { return Runner != null || (Program(folder) != null && Model(folder, language) != null); }
+
+        internal static bool Available(string folder) { return Available(folder, "en"); }
+
+        internal static string Describe(string folder, string language)
+        {
+            string model = Model(folder, language);
+            if (Runner == null && Program(folder) != null && model == null && Model(folder, "en") != null) return "Windows' own (her Whisper model is English only; Download better ears… adds one for " + language + ")";
             return Runner != null || (Program(folder) != null && model != null) ? "Whisper (" + (model == null ? "test" : Path.GetFileNameWithoutExtension(model).Replace("ggml-", "")) + ")" : "Windows' own";
         }
+
+        internal static string Describe(string folder) { return Describe(folder, "en"); }
 
         // A 16 kHz, 16-bit mono wave file around the recorded sound.
         internal static byte[] Wave(byte[] pcm)
@@ -6664,14 +6812,14 @@ namespace CapriDesktop
             return Regex.Replace(text, @"\s+", " ").Trim();
         }
 
-        internal static string Transcribe(string folder, byte[] pcm)
+        internal static string Transcribe(string folder, byte[] pcm, string language)
         {
             string wave = Path.Combine(Path.GetTempPath(), "capri-" + Guid.NewGuid().ToString("N") + ".wav");
             File.WriteAllBytes(wave, Wave(pcm));
             try
             {
                 if (Runner != null) return Clean(Runner(wave));
-                string basics = "-m \"" + Model(folder) + "\" -f \"" + wave + "\" -nt -np -l en --prompt \"Hello Capri.\"";
+                string basics = Arguments(Model(folder, language), wave, language);
                 try { return Run(folder, basics + " -t " + Math.Max(2, Math.Min(8, Environment.ProcessorCount)) + " -bs 1 -bo 1"); }
                 catch (InvalidOperationException) { return Run(folder, basics); }
             }
@@ -6698,6 +6846,130 @@ namespace CapriDesktop
         }
     }
 
+    // The optional download of better ears: a Windows build of whisper.cpp and a model that understands many languages.
+    // Both are fixed files, checked by size and SHA-256 before anything is used, and it only happens when you ask.
+    internal static class EarsDownload
+    {
+        internal const string ProgramUrl = "https://github.com/ggml-org/whisper.cpp/releases/download/b5454/whisper-bin-x64.zip";
+        internal const string ModelUrl = "https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-small-q5_1.bin";
+        internal const string ModelName = "ggml-small-q5_1.bin";
+
+        // The expected size and fingerprint of each file. Only the tests change these.
+        internal static long ProgramBytes = 8928640;
+        internal static string ProgramSha = "6ba69e3482d7826214f90a6a9c84ca07782aec1e1d0c6a7c30c994fd5d816ccb";
+        internal static long ModelBytes = 190085487;
+        internal static string ModelSha = "ae85e4a935d7a567bd102fe55afc16bb595bdb618e11b2fc7591bc08120411bb";
+
+        // Tests hand in a stand-in for the network: the address, the file to write, a report of bytes so far, and whether to give up.
+        internal static Action<string, string, Action<long>, Func<bool>> Fetch;
+
+        internal static bool NeedProgram(string folder) { return Whisper.Program(folder) == null; }
+        internal static bool NeedModel(string folder) { return !File.Exists(Path.Combine(folder, "models", ModelName)); }
+
+        // Only these two sites, over https, and the answer must still be https after any redirect.
+        internal static void Download(string url, string destination, Action<long> report, Func<bool> cancelled)
+        {
+            Uri address = new Uri(url);
+            if (address.Scheme != "https" || (address.Host != "github.com" && address.Host != "huggingface.co")) throw new InvalidOperationException("That address is not allowed.");
+            try { ServicePointManager.SecurityProtocol |= (SecurityProtocolType)3072; } catch (Exception) { }
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(address);
+            request.UserAgent = "Capri";
+            request.Timeout = 30000;
+            request.ReadWriteTimeout = 30000;
+            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            {
+                if (response.ResponseUri.Scheme != "https") throw new InvalidOperationException("The download was redirected away from https.");
+                using (Stream input = response.GetResponseStream())
+                using (FileStream output = new FileStream(destination, FileMode.Create, FileAccess.Write))
+                {
+                    byte[] buffer = new byte[65536];
+                    long total = 0;
+                    int count;
+                    while (!cancelled() && (count = input.Read(buffer, 0, buffer.Length)) > 0)
+                    {
+                        output.Write(buffer, 0, count);
+                        total += count;
+                        report(total);
+                    }
+                }
+            }
+        }
+
+        internal static string Sha256(string path)
+        {
+            using (FileStream stream = File.OpenRead(path))
+            using (System.Security.Cryptography.SHA256 hash = System.Security.Cryptography.SHA256.Create())
+            {
+                StringBuilder text = new StringBuilder();
+                foreach (byte b in hash.ComputeHash(stream)) text.Append(b.ToString("x2"));
+                return text.ToString();
+            }
+        }
+
+        // Gets one file next to where it will live and keeps it only if it is exactly the file expected.
+        private static string Get(string url, long bytes, string sha, string folder, Action<long> report, Func<bool> cancelled)
+        {
+            string part = Path.Combine(folder, "download-" + Guid.NewGuid().ToString("N") + ".part");
+            try
+            {
+                if (Fetch != null) Fetch(url, part, report, cancelled); else Download(url, part, report, cancelled);
+                if (cancelled()) throw new OperationCanceledException();
+                if (new FileInfo(part).Length != bytes || !string.Equals(Sha256(part), sha, StringComparison.OrdinalIgnoreCase)) throw new InvalidDataException("The download was not the file it should be, so it was not used.");
+                return part;
+            }
+            catch (Exception) { try { File.Delete(part); } catch (IOException) { } throw; }
+        }
+
+        // Only whisper-cli.exe and the libraries it loads are taken from the zip, by file name, never by path. The program goes in last so a half unpack is not mistaken for a working one.
+        internal static void Unpack(string zipPath, string target)
+        {
+            Directory.CreateDirectory(target);
+            using (ZipArchive zip = ZipFile.OpenRead(zipPath))
+            {
+                foreach (ZipArchiveEntry entry in zip.Entries)
+                {
+                    string name = Path.GetFileName(entry.FullName);
+                    if (name.Length > 0 && name.EndsWith(".dll", StringComparison.OrdinalIgnoreCase)) entry.ExtractToFile(Path.Combine(target, name), true);
+                }
+                foreach (ZipArchiveEntry entry in zip.Entries)
+                    if (Path.GetFileName(entry.FullName) == "whisper-cli.exe") entry.ExtractToFile(Path.Combine(target, "whisper-cli.exe"), true);
+            }
+        }
+
+        // Fetches whatever is missing. Progress is 0 to 100 and the last step is only reported by the caller.
+        internal static void Install(string folder, Action<int> progress, Func<bool> cancelled)
+        {
+            bool needProgram = NeedProgram(folder);
+            bool needModel = NeedModel(folder);
+            long total = (needProgram ? ProgramBytes : 0) + (needModel ? ModelBytes : 0);
+            Directory.CreateDirectory(folder);
+            try
+            {
+                DriveInfo drive = new DriveInfo(Path.GetPathRoot(Path.GetFullPath(folder)));
+                if (drive.AvailableFreeSpace < total + 60000000L) throw new IOException("There is not enough free space on that drive.");
+            }
+            catch (ArgumentException) { }
+            long before = 0;
+            if (needProgram)
+            {
+                string zip = Get(ProgramUrl, ProgramBytes, ProgramSha, folder, delegate(long n) { progress((int)Math.Min(99, n * 100 / Math.Max(1, total))); }, cancelled);
+                try { Unpack(zip, Path.Combine(folder, "bin", "Release")); }
+                finally { try { File.Delete(zip); } catch (IOException) { } }
+                before = ProgramBytes;
+            }
+            if (needModel)
+            {
+                string models = Path.Combine(folder, "models");
+                Directory.CreateDirectory(models);
+                long start = before;
+                string part = Get(ModelUrl, ModelBytes, ModelSha, folder, delegate(long n) { progress((int)Math.Min(99, (start + n) * 100 / Math.Max(1, total))); }, cancelled);
+                string final = Path.Combine(models, ModelName);
+                if (File.Exists(final)) File.Delete(final);
+                File.Move(part, final);
+            }
+        }
+    }
+
     // Listens through the microphone with the recognizer that ships with Windows. It only listens when asked, for one phrase,
     // and lets go of the microphone straight afterwards. Nothing is recorded to disk and nothing leaves this computer.
     // She records the phrase herself (it starts when you speak and ends after a second of quiet) and hands the finished
@@ -6709,6 +6981,7 @@ namespace CapriDesktop
         private volatile bool cancelled;
         internal string Device = "";
         internal string SpeechFolder = "";
+        internal string Language = "en";
         internal string Log = "";
         internal volatile string WhisperProblem;
         internal bool UseWhisper = true;
@@ -6735,17 +7008,20 @@ namespace CapriDesktop
             }
         }
 
-        // The recognizer for the language Windows is using, or the first one installed.
-        internal static SR.RecognizerInfo Pick()
+        // The recognizer for the language she is set to if Windows has one, else the language Windows is using, else the first one installed.
+        internal static SR.RecognizerInfo Pick(string language)
         {
-            SR.RecognizerInfo first = null;
+            SR.RecognizerInfo first = null, windows = null;
             foreach (SR.RecognizerInfo info in SR.SpeechRecognitionEngine.InstalledRecognizers())
             {
                 if (first == null) first = info;
-                if (info.Culture.TwoLetterISOLanguageName == System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName) return info;
+                if (language != "en" && info.Culture.TwoLetterISOLanguageName == language) return info;
+                if (windows == null && info.Culture.TwoLetterISOLanguageName == System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName) windows = info;
             }
-            return first;
+            return windows ?? first;
         }
+
+        internal static SR.RecognizerInfo Pick() { return Pick("en"); }
 
         private static int Loudest(byte[] data, int count)
         {
@@ -6841,7 +7117,7 @@ namespace CapriDesktop
                 Source(delegate(string text, double confidence) { Listening = false; heard(text, confidence); }, delegate(string why) { Listening = false; failed(why); });
                 return;
             }
-            Note("listening. microphone: " + (Device.Length > 0 ? Device : "Windows default") + ". ears: " + (UseWhisper && Whisper.Available(SpeechFolder) ? Whisper.Describe(SpeechFolder) : "Windows' own"));
+            Note("listening. microphone: " + (Device.Length > 0 ? Device : "Windows default") + ". language: " + Language + ". ears: " + (UseWhisper && Whisper.Available(SpeechFolder, Language) ? Whisper.Describe(SpeechFolder, Language) : "Windows' own"));
             MicTap source;
             try
             {
@@ -6908,14 +7184,14 @@ namespace CapriDesktop
                 Boost(samples);
                 string text = null;
                 double confidence = 0;
-                if (UseWhisper && Whisper.Available(SpeechFolder))
+                if (UseWhisper && Whisper.Available(SpeechFolder, Language))
                 {
-                    try { text = Whisper.Transcribe(SpeechFolder, samples); confidence = 1; }
+                    try { text = Whisper.Transcribe(SpeechFolder, samples, Language); confidence = 1; }
                     catch (Exception ex) { text = null; WhisperProblem = ex.Message; Note("Whisper failed (" + ex.GetType().Name + ": " + ex.Message + "), so she used Windows' own recognizer"); }
                 }
                 if (cancelled) return;
                 if (text != null) { Finish(); Note(text.Length == 0 ? "Whisper heard no words in " + samples.Length / 32000.0 + "s of sound" : "Whisper understood " + text.Split(' ').Length + " words in " + samples.Length / 32000.0 + "s of sound"); if (text.Length == 0) failed("silence"); else heard(FixName(text), confidence); return; }
-                if (Pick() == null) { Note("Windows has no speech recognizer installed and Whisper was not used, so there was nothing to understand her with"); Finish(); failed("norecognizer"); return; }
+                if (Pick(Language) == null) { Note("Windows has no speech recognizer installed and Whisper was not used, so there was nothing to understand her with"); Finish(); failed("norecognizer"); return; }
                 // The recognizer stops at the first pause in a recording, so the phrase is cut at pauses and each part is recognized in turn.
                 double total = 0;
                 int pieces = 0;
@@ -6929,7 +7205,7 @@ namespace CapriDesktop
                     padded.Write(part, 0, part.Length);
                     padded.Write(new byte[16000], 0, 16000);
                     padded.Position = 0;
-                    using (SR.SpeechRecognitionEngine engine = new SR.SpeechRecognitionEngine(Pick()))
+                    using (SR.SpeechRecognitionEngine engine = new SR.SpeechRecognitionEngine(Pick(Language)))
                     {
                         engine.LoadGrammar(new SR.DictationGrammar());
                         engine.SetInputToAudioStream(padded, new System.Speech.AudioFormat.SpeechAudioFormatInfo(16000, System.Speech.AudioFormat.AudioBitsPerSample.Sixteen, System.Speech.AudioFormat.AudioChannel.Mono));
@@ -6943,8 +7219,8 @@ namespace CapriDesktop
                 if (pieces > 0) confidence = total / pieces;
                 if (cancelled) return;
                 Finish();
-                if (string.IsNullOrWhiteSpace(text)) { Note("Windows' recognizer understood nothing in " + samples.Length / 32000.0 + "s of sound (language: " + Pick().Culture.Name + ")"); failed("silence"); }
-                else { Note("Windows' recognizer understood " + text.Split(' ').Length + " words, confidence " + Math.Round(confidence, 2) + " (language: " + Pick().Culture.Name + ")"); heard(FixName(text), confidence); }
+                if (string.IsNullOrWhiteSpace(text)) { Note("Windows' recognizer understood nothing in " + samples.Length / 32000.0 + "s of sound (language: " + Pick(Language).Culture.Name + ")"); failed("silence"); }
+                else { Note("Windows' recognizer understood " + text.Split(' ').Length + " words, confidence " + Math.Round(confidence, 2) + " (language: " + Pick(Language).Culture.Name + ")"); heard(FixName(text), confidence); }
             }
             catch (Exception ex)
             {

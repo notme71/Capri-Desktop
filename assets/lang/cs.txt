@@ -712,3 +712,25 @@ Capri nemohla dokončit. Tvé soubory tu stále jsou.
 Neslyším vůbec žádný zvuk! Zkontroluj mikrofon v Chat, Mikrofon a jestli Windows dovoluje desktopovým aplikacím ho používat.
 > Whisper isn't working, so I fell back to Windows' own ears. The reason is in voice-log.txt.
 Whisper nefunguje, tak jsem použila vlastní uši Windows. Důvod je ve voice-log.txt.
+> Download better ears…
+Stáhnout lepší uši…
+> Cancel the download
+Zrušit stahování
+> Downloading better ears… {0}%
+Stahuji lepší uši… {0} %
+> My better ears are already here!
+Moje lepší uši už jsou tady!
+> Whisper, a speech recognizer that runs on your PC ({0} MB), from github.com
+Whisper, rozpoznávání řeči, které běží na tvém počítači ({0} MB), z github.com
+> A speech model that understands many languages ({0} MB), from huggingface.co
+Řečový model, který rozumí mnoha jazykům ({0} MB), z huggingface.co
+> This downloads once from the internet:\n\n{0}\nThey are checked against known fingerprints before they are used. Nothing you say is ever sent anywhere. They are saved in {1}.\n\nDownload now?
+Tohle se jednou stáhne z internetu:\n\n{0}\nPřed použitím se kontrolují podle známých otisků. Nic, co řekneš, se nikam neposílá. Ukládají se do {1}.\n\nStáhnout teď?
+> Downloading my better ears. This can take a few minutes.
+Stahuji své lepší uši. Může to trvat pár minut.
+> Better ears are in! I should hear you much better now.
+Lepší uši jsou tady! Teď bych tě měla slyšet mnohem líp.
+> Download cancelled.
+Stahování zrušeno.
+> The download failed: {0}
+Stahování se nezdařilo: {0}

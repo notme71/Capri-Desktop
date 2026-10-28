@@ -712,3 +712,25 @@ Spotify не открыт или не пускает меня.
 Я вообще не слышу звука! Проверь микрофон в Чат, Микрофон и разрешает ли Windows классическим приложениям его использовать.
 > Whisper isn't working, so I fell back to Windows' own ears. The reason is in voice-log.txt.
 Whisper не работает, поэтому я использовала встроенные уши Windows. Причина указана в voice-log.txt.
+> Download better ears…
+Скачать уши получше…
+> Cancel the download
+Отменить загрузку
+> Downloading better ears… {0}%
+Скачиваю уши получше… {0}%
+> My better ears are already here!
+Мои уши получше уже здесь!
+> Whisper, a speech recognizer that runs on your PC ({0} MB), from github.com
+Whisper, распознавание речи, работающее на твоём ПК ({0} МБ), с github.com
+> A speech model that understands many languages ({0} MB), from huggingface.co
+Речевая модель, понимающая много языков ({0} МБ), с huggingface.co
+> This downloads once from the internet:\n\n{0}\nThey are checked against known fingerprints before they are used. Nothing you say is ever sent anywhere. They are saved in {1}.\n\nDownload now?
+Это один раз скачивается из интернета:\n\n{0}\nПеред использованием они проверяются по известным отпечаткам. Ничего из того, что ты говоришь, никуда не отправляется. Они сохраняются в {1}.\n\nСкачать сейчас?
+> Downloading my better ears. This can take a few minutes.
+Скачиваю свои уши получше. Это может занять несколько минут.
+> Better ears are in! I should hear you much better now.
+Уши получше на месте! Теперь я должна слышать тебя намного лучше.
+> Download cancelled.
+Загрузка отменена.
+> The download failed: {0}
+Загрузка не удалась: {0}

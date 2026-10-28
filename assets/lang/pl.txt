@@ -712,3 +712,25 @@ Capri nie mogła dokończyć. Twoje pliki nadal tu są.
 W ogóle nie słyszę dźwięku! Sprawdź mikrofon w Czat, Mikrofon i czy Windows pozwala aplikacjom na pulpicie z niego korzystać.
 > Whisper isn't working, so I fell back to Windows' own ears. The reason is in voice-log.txt.
 Whisper nie działa, więc użyłam wbudowanego rozpoznawania Windows. Powód jest w voice-log.txt.
+> Download better ears…
+Pobierz lepsze uszy…
+> Cancel the download
+Anuluj pobieranie
+> Downloading better ears… {0}%
+Pobieranie lepszych uszu… {0}%
+> My better ears are already here!
+Moje lepsze uszy już tu są!
+> Whisper, a speech recognizer that runs on your PC ({0} MB), from github.com
+Whisper, rozpoznawanie mowy działające na Twoim komputerze ({0} MB), z github.com
+> A speech model that understands many languages ({0} MB), from huggingface.co
+Model mowy rozumiejący wiele języków ({0} MB), z huggingface.co
+> This downloads once from the internet:\n\n{0}\nThey are checked against known fingerprints before they are used. Nothing you say is ever sent anywhere. They are saved in {1}.\n\nDownload now?
+To jednorazowo pobiera z internetu:\n\n{0}\nPrzed użyciem są sprawdzane z znanymi odciskami. Nic, co mówisz, nigdzie nie jest wysyłane. Są zapisywane w {1}.\n\nPobrać teraz?
+> Downloading my better ears. This can take a few minutes.
+Pobieram moje lepsze uszy. To może potrwać kilka minut.
+> Better ears are in! I should hear you much better now.
+Lepsze uszy są! Powinnam Cię teraz słyszeć znacznie lepiej.
+> Download cancelled.
+Pobieranie anulowane.
+> The download failed: {0}
+Pobieranie się nie udało: {0}

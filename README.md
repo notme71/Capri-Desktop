@@ -28,19 +28,19 @@ The latest release is **V2.3**. Get `Capri-Setup.exe` from the [Releases](../../
 **Is it safe? Is it a virus?** No. The whole source is in this repository, so you can read it, and you can build it yourself with `build.bat` (below), which uses the compiler already built into Windows. If you would rather not trust the download, that is the way. What she does and does not do:
 - No keyboard or mouse hooks, and no logging of what you type.
 - No account and no telemetry. A screenshot is only taken when you ask her to look, or if you switch on dares that look (off by default, and it asks first). It stays in memory and is never saved.
-- She only goes on the internet for things you turn on: a cloud model with your own key, or "Play X on YouTube", which makes one request to youtube.com. Chat, memory and everything else stay on your computer.
+- She only goes on the internet for things you turn on: a cloud model with your own key, "Play X on YouTube" (one request to youtube.com), or Chat, **Download better ears…**, which asks first and then downloads two fixed files from github.com and huggingface.co. Chat, memory and everything else stay on your computer.
 - Windows may warn about the download because the file is not code-signed. That is the only reason it is flagged, not a sign of anything wrong. On the warning, click **More info**, then **Run anyway**. If you downloaded the zip, right-click it, choose **Properties** and tick **Unblock** before you unzip it.
 - She installs for your Windows user only, no admin needed, and **Remove Capri** in the installer takes her back out.
 
 **How do I install her?** Download `Capri-Setup.exe` (or unzip the release zip first) and run it. That is all.
 
-**She doesn't hear me, or hears the wrong thing.** She starts with Windows' own speech recognizer, which is basic and **English only**. For better hearing, add Whisper (next question). Also pick your microphone in her menu under Chat, Microphone instead of "Windows default", and check that Windows allows desktop apps to use it (Settings, Privacy & security, Microphone). She now says what is wrong when she can: "I can't hear any sound at all" means the microphone is silent or blocked, and "Whisper isn't working" means your Whisper files are set up wrong. Every attempt is also written to `%LocalAppData%\Capri\voice-log.txt` with the reason (no recording and no words, only numbers and errors). If it is still a mystery, open an issue and paste the last few lines of that file.
+**She doesn't hear me, or hears the wrong thing.** She starts with Windows' own speech recognizer, which is basic and only understands the speech packs installed in Windows (usually just your Windows language). For better hearing, add Whisper (next question). Also pick your microphone in her menu under Chat, Microphone instead of "Windows default", and check that Windows allows desktop apps to use it (Settings, Privacy & security, Microphone). She now says what is wrong when she can: "I can't hear any sound at all" means the microphone is silent or blocked, and "Whisper isn't working" means your Whisper files are set up wrong. Every attempt is also written to `%LocalAppData%\Capri\voice-log.txt` with the reason (no recording and no words, only numbers and errors). If it is still a mystery, open an issue and paste the last few lines of that file.
 
-**Which Whisper do I need?** Whisper is optional and runs locally; nothing is sent anywhere. She needs two things in `%LocalAppData%\Capri\speech`:
+**Which Whisper do I need?** The easy way: in her menu choose Chat, **Download better ears…**. She asks first, then downloads Whisper (about 9 MB) and a model that understands many languages (about 190 MB), checks both against known fingerprints and sets them up. Or do it by hand. Whisper is optional and runs locally; nothing is sent anywhere. She needs two things in `%LocalAppData%\Capri\speech`:
 - `bin\Release\whisper-cli.exe`, from a [whisper.cpp](https://github.com/ggml-org/whisper.cpp) Windows build (`bin\whisper-cli.exe` also works).
 - A model file in `models`. Use **`ggml-small.en.bin`** (best choice here, about 470 MB) or **`ggml-base.en.bin`** (faster and smaller, less accurate). Both are English-only models. You can get them from the [whisper.cpp models on Hugging Face](https://huggingface.co/ggerganov/whisper.cpp). If neither is there she uses any other `ggml-*.bin` she finds in that folder.
 
-The Chat menu shows which ears are active, "Whisper (small.en)" or "Windows' own". Voice input is English only for now.
+The Chat menu shows which ears are active, "Whisper (small.en)" or "Windows' own". With Capri set to English she prefers the English models above, which are the most accurate for English. Set to any other language, she picks a multilingual model (the one from **Download better ears…**, or any `ggml-small.bin` / `ggml-base.bin` style model without `.en` in its name) and tells Whisper to listen in that language. Without a multilingual model she falls back to Windows' own recognizer, which has to have that language installed.
 
 **How do I give her a voice?** The voice feature is very much a work in progress. If you still want to try it, see "Voice lines (optional)" below. Nothing is bundled: you add your own `.wav` clips, and her menu has Voice, **Open voice folder…**. No ElevenLabs or any other service is needed.
 
@@ -48,7 +48,7 @@ The Chat menu shows which ears are active, "Whisper (small.en)" or "Windows' own
 
 **Is there a Linux or Mac version?** No. She is a Windows app.
 
-**Which languages?** English, Polski, Français, Deutsch, Español, Italiano, Português, Русский, Čeština and Tiếng Việt. See "Languages" below. Not everything works outside English yet: typed and spoken commands and voice input are English only.
+**Which languages?** English, Polski, Français, Deutsch, Español, Italiano, Português, Русский, Čeština and Tiếng Việt. See "Languages" below. Voice input follows the language she is set to when she has a multilingual Whisper model (Chat, Download better ears…). Typed and spoken commands such as "set a timer for 10 minutes" are still English only.
 
 ## What she does
 
@@ -125,6 +125,8 @@ No GPU? Chat, Cloud model settings lets you use OpenRouter, OpenAI, Anthropic, o
 - Only https addresses are accepted for the cloud.
 
 ### Better ears (optional)
+
+The easy way is Chat, **Download better ears…** in her menu (it asks before it downloads anything, and shows the sizes). It fetches the Windows build of [whisper.cpp](https://github.com/ggml-org/whisper.cpp) release b5454 and the `ggml-small-q5_1.bin` model (about 190 MB) from Hugging Face, and only uses them if their size and SHA-256 match exactly. To do it by hand instead:
 
 Install [whisper.cpp](https://github.com/ggml-org/whisper.cpp) and put it here:
 
