@@ -21,7 +21,7 @@ By default everything runs locally. There is no account and no telemetry, and th
 
 ## Download
 
-The latest release is **V2.2**. Get `Capri-Setup.exe` from the [Releases](../../releases) page and run it. Windows may show a SmartScreen warning because the file is not code-signed; the source is all here, and you can build it yourself (below).
+The latest release is **V2.3**. Get `Capri-Setup.exe` from the [Releases](../../releases) page and run it. Windows may show a SmartScreen warning because the file is not code-signed; the source is all here, and you can build it yourself (below).
 
 ## Quick answers
 
