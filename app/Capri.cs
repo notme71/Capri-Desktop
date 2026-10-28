@@ -353,6 +353,7 @@ namespace CapriDesktop
             ear.UseWhisper = preferences.UseWhisper;
             ear.PauseSeconds = preferences.PauseSeconds;
             ear.SpeechFolder = Path.Combine(data, "speech");
+            ear.Log = smoke ? "" : Path.Combine(data, "voice-log.txt");
             using (Stream image = Assembly.GetExecutingAssembly().GetManifestResourceStream("Capri.Character.png"))
             {
                 if (image == null) throw new FileNotFoundException("The original Capri artwork is missing. Rebuild with assets/capri.png.");
@@ -1742,7 +1743,7 @@ namespace CapriDesktop
                 ListeningOver();
                 return;
             }
-            if (!Ear.Available) { Say("I have no ears! Add an English speech pack in Windows settings.", true); return; }
+            if (!Ear.Available && !(preferences.UseWhisper && Whisper.Available(ear.SpeechFolder))) { Say("I have no ears! Add an English speech pack in Windows settings.", true); return; }
             if (ChatOpen()) chat.SetListening(true);
             ShowCut("eyes", 9);
             if (mic != null) mic.Listening = true;
@@ -1758,6 +1759,9 @@ namespace CapriDesktop
         {
             ListeningOver();
             if (why == "error") { Respond("I can't use that microphone! Try another one in Chat, Microphone."); return; }
+            if (why == "norecognizer") { Respond("I have no ears! Add an English speech pack in Windows settings."); return; }
+            if (why == "quiet") { Respond("I can't hear any sound at all! Check your mic in Chat, Microphone, and that Windows lets desktop apps use it."); return; }
+            if (ear.WhisperProblem != null) { Respond("Whisper isn't working, so I fell back to Windows' own ears. The reason is in voice-log.txt."); return; }
             unheard++;
             Respond(unheard == 1 ? "Can't hear you!" : unheard == 2 ? "Still can't hear you!" : unheard == 3 ? "Hello?? Still can't hear you!" : "Nope, still nothing! Try another mic in Chat, Microphone!");
         }
@@ -1831,9 +1835,12 @@ namespace CapriDesktop
         private double lastReplyAt = -1000;
         private static readonly Regex AgreeWords = new Regex(@"^(?:ok|okay|sure|fine|yeah|yes|yep|alright|deal|you'?re right|good point|fair enough|true|i agree|if you say so)\b", RegexOptions.IgnoreCase);
 
+        internal string LastReply = "";
+
         private void Respond(string text)
         {
             text = Lang.T(text);
+            LastReply = text;
             lastReplyAt = clock.Elapsed.TotalSeconds;
             if (ChatOpen()) { chat.AddHer(text); Speak("reply", true); }
             else Reply(text);
@@ -4872,7 +4879,7 @@ namespace CapriDesktop
                                     ear.Stop();
                                     ear.TapFactory = null;
                                     ear.Patience = 7;
-                                    if (problem != "silence") throw new Exception("A silent microphone did not end in 'silence': " + (problem ?? understood ?? "nothing happened"));
+                                    if (problem != "quiet") throw new Exception("A silent microphone did not end in 'quiet': " + (problem ?? understood ?? "nothing happened"));
                                     checks.Add("PASS the real recognizer understands speech arriving through the microphone stream, and a silent one gives up on its own");
                                     byte[] sampleWave = Whisper.Wave(new byte[3200]);
                                     if (sampleWave.Length != 44 + 3200 || Encoding.ASCII.GetString(sampleWave, 0, 4) != "RIFF" || BitConverter.ToInt32(sampleWave, 24) != 16000 || BitConverter.ToInt16(sampleWave, 34) != 16 || BitConverter.ToInt32(sampleWave, 40) != 3200) throw new Exception("The wave file handed to Whisper was malformed.");
@@ -4906,6 +4913,26 @@ namespace CapriDesktop
                                     for (int n = 0; n < 750 && windowsText == null; n++) { Application.DoEvents(); Thread.Sleep(20); }
                                     ear.Stop();
                                     ear.UseWhisper = true;
+                                    Whisper.Runner = delegate(string path) { throw new InvalidOperationException("Whisper stopped with code 3"); };
+                                    string logFile = Path.Combine(output, "voice-log-test.txt");
+                                    if (File.Exists(logFile)) File.Delete(logFile);
+                                    ear.Log = logFile;
+                                    string brokenText = null;
+                                    ear.Start(delegate(string text, double confidence) { brokenText = text; }, delegate(string why) { brokenText = "problem:" + why; });
+                                    for (int n = 0; n < 750 && brokenText == null; n++) { Application.DoEvents(); Thread.Sleep(20); }
+                                    ear.Stop();
+                                    ear.Log = "";
+                                    string logged = File.Exists(logFile) ? File.ReadAllText(logFile) : "";
+                                    if (ear.WhisperProblem == null || brokenText == null || brokenText.IndexOf("hello", StringComparison.OrdinalIgnoreCase) < 0 || logged.IndexOf("Whisper failed") < 0 || logged.IndexOf("listening. microphone: Windows default") < 0 || logged.IndexOf("Windows' recognizer understood") < 0) throw new Exception("A failing Whisper was not noted in the voice log or did not fall back: " + (brokenText ?? "nothing") + " / " + logged);
+                                    if (logged.IndexOf("hello", StringComparison.OrdinalIgnoreCase) >= 0 && logged.IndexOf("Whisper stopped with code 3") < 0) throw new Exception("The voice log held what was said.");
+                                    ear.WhisperProblem = "x";
+                                    unheard = 0;
+                                    Unheard("silence");
+                                    if (LastReply.IndexOf("Whisper isn't working") < 0) throw new Exception("A failing Whisper was not explained when she heard nothing: " + LastReply);
+                                    ear.WhisperProblem = null;
+                                    Unheard("quiet");
+                                    if (LastReply.IndexOf("can't hear any sound at all") < 0) throw new Exception("A silent microphone was not explained: " + LastReply);
+                                    unheard = 0;
                                     Whisper.Runner = null;
                                     ear.TapFactory = null;
                                     if (windowsText == null || windowsText.IndexOf("hello", StringComparison.OrdinalIgnoreCase) < 0) throw new Exception("Switching Whisper off did not fall back to the Windows recognizer.");
@@ -6682,6 +6709,8 @@ namespace CapriDesktop
         private volatile bool cancelled;
         internal string Device = "";
         internal string SpeechFolder = "";
+        internal string Log = "";
+        internal volatile string WhisperProblem;
         internal bool UseWhisper = true;
         internal double Patience = 7;
         internal double PauseSeconds = 2.5;
@@ -6779,7 +6808,26 @@ namespace CapriDesktop
             return parts;
         }
 
-        // Failures come back as "silence" (nothing usable was heard, for any reason) or "error" (the microphone could not be used).
+        // One line in voice-log.txt about what happened, so a problem can be explained. It holds no speech and no recognized words, only the numbers and the reason.
+        private void Note(string line)
+        {
+            if (Log.Length == 0) return;
+            try
+            {
+                string[] old = File.Exists(Log) && new FileInfo(Log).Length > 24000 ? File.ReadAllLines(Log) : new string[0];
+                if (old.Length > 100)
+                {
+                    string[] kept = new string[100];
+                    Array.Copy(old, old.Length - 100, kept, 0, 100);
+                    File.WriteAllLines(Log, kept, new UTF8Encoding(false));
+                }
+                File.AppendAllText(Log, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "  " + line + "\r\n", new UTF8Encoding(false));
+            }
+            catch (IOException) { }
+            catch (UnauthorizedAccessException) { }
+        }
+
+        // Failures come back as "silence" (it heard something but nothing usable), "quiet" (the microphone gave no sound), "norecognizer" (nothing to understand it with) or "error" (the microphone could not be used).
         internal void Start(Action<string, double> heard, Action<string> failed)
         {
             if (Listening) return;
@@ -6787,19 +6835,21 @@ namespace CapriDesktop
             cancelled = false;
             endNow = false;
             spoken = false;
+            WhisperProblem = null;
             if (Source != null)
             {
                 Source(delegate(string text, double confidence) { Listening = false; heard(text, confidence); }, delegate(string why) { Listening = false; failed(why); });
                 return;
             }
+            Note("listening. microphone: " + (Device.Length > 0 ? Device : "Windows default") + ". ears: " + (UseWhisper && Whisper.Available(SpeechFolder) ? Whisper.Describe(SpeechFolder) : "Windows' own"));
             MicTap source;
             try
             {
                 int index = Device.Length > 0 ? Native.WaveDevice(Device) : -1;
                 source = TapFactory != null ? TapFactory() : new MicTap(index);
-                if (TapFactory == null && !source.Start()) { Finish(); failed("error"); return; }
+                if (TapFactory == null && !source.Start()) { Note("the microphone could not be opened"); Finish(); failed("error"); return; }
             }
-            catch (Exception) { Finish(); failed("error"); return; }
+            catch (Exception ex) { Note("the microphone failed: " + ex.GetType().Name + ": " + ex.Message); Finish(); failed("error"); return; }
             tap = source;
             Thread worker = new Thread(delegate() { Capture(source, heard, failed); });
             worker.IsBackground = true;
@@ -6815,7 +6865,7 @@ namespace CapriDesktop
                 byte[] chunk = new byte[3200];
                 Stopwatch clock = Stopwatch.StartNew();
                 bool spoke = false;
-                int quiet = 0, floor = 0, sampled = 0, threshold = 900;
+                int quiet = 0, floor = 0, sampled = 0, threshold = 900, peak = 0;
                 while (!cancelled)
                 {
                     if (endNow && spoke) break;
@@ -6827,6 +6877,7 @@ namespace CapriDesktop
                         continue;
                     }
                     int level = Loudest(chunk, count);
+                    peak = Math.Max(peak, level);
                     byte[] copy = new byte[count];
                     Array.Copy(chunk, copy, count);
                     if (sampled < 3) { floor = Math.Max(floor, level); sampled++; threshold = Math.Max(900, Math.Min(floor, 500) * 3); }   // capped, since she may be spoken to straight away
@@ -6851,7 +6902,8 @@ namespace CapriDesktop
                     }
                 }
                 if (cancelled) return;
-                if (!spoke || phrase.Length < 6400) { Finish(); failed("silence"); return; }
+                if (!spoke) { Note("no sound reached her: the loudest level was " + peak + " and speech needs more than " + threshold + ". check the microphone and Windows' microphone privacy setting."); Finish(); failed("quiet"); return; }
+                if (phrase.Length < 6400) { Note("what she heard was too short to use (" + phrase.Length / 32000.0 + "s)"); Finish(); failed("silence"); return; }
                 byte[] samples = phrase.ToArray();
                 Boost(samples);
                 string text = null;
@@ -6859,10 +6911,11 @@ namespace CapriDesktop
                 if (UseWhisper && Whisper.Available(SpeechFolder))
                 {
                     try { text = Whisper.Transcribe(SpeechFolder, samples); confidence = 1; }
-                    catch (Exception) { text = null; }
+                    catch (Exception ex) { text = null; WhisperProblem = ex.Message; Note("Whisper failed (" + ex.GetType().Name + ": " + ex.Message + "), so she used Windows' own recognizer"); }
                 }
                 if (cancelled) return;
-                if (text != null) { Finish(); if (text.Length == 0) failed("silence"); else heard(FixName(text), confidence); return; }
+                if (text != null) { Finish(); Note(text.Length == 0 ? "Whisper heard no words in " + samples.Length / 32000.0 + "s of sound" : "Whisper understood " + text.Split(' ').Length + " words in " + samples.Length / 32000.0 + "s of sound"); if (text.Length == 0) failed("silence"); else heard(FixName(text), confidence); return; }
+                if (Pick() == null) { Note("Windows has no speech recognizer installed and Whisper was not used, so there was nothing to understand her with"); Finish(); failed("norecognizer"); return; }
                 // The recognizer stops at the first pause in a recording, so the phrase is cut at pauses and each part is recognized in turn.
                 double total = 0;
                 int pieces = 0;
@@ -6890,12 +6943,13 @@ namespace CapriDesktop
                 if (pieces > 0) confidence = total / pieces;
                 if (cancelled) return;
                 Finish();
-                if (string.IsNullOrWhiteSpace(text)) failed("silence");
-                else heard(FixName(text), confidence);
+                if (string.IsNullOrWhiteSpace(text)) { Note("Windows' recognizer understood nothing in " + samples.Length / 32000.0 + "s of sound (language: " + Pick().Culture.Name + ")"); failed("silence"); }
+                else { Note("Windows' recognizer understood " + text.Split(' ').Length + " words, confidence " + Math.Round(confidence, 2) + " (language: " + Pick().Culture.Name + ")"); heard(FixName(text), confidence); }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 if (cancelled) return;
+                Note("error while listening: " + ex.GetType().Name + ": " + ex.Message);
                 Finish();
                 failed("error");
             }

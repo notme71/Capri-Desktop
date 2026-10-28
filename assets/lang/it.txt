@@ -708,3 +708,7 @@ INSTALLAZIONE
 Fermato
 > Capri could not finish. Your files are still here.
 Capri non ha potuto finire. I tuoi file sono ancora qui.
+> I can't hear any sound at all! Check your mic in Chat, Microphone, and that Windows lets desktop apps use it.
+Non sento nessun suono! Controlla il microfono in Chat, Microfono e che Windows permetta alle app desktop di usarlo.
+> Whisper isn't working, so I fell back to Windows' own ears. The reason is in voice-log.txt.
+Whisper non funziona, quindi ho usato le orecchie di Windows. Il motivo è in voice-log.txt.

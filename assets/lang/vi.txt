@@ -708,3 +708,7 @@ CÀI ĐẶT
 Đã dừng
 > Capri could not finish. Your files are still here.
 Capri không thể hoàn tất. Các tệp của bạn vẫn còn đây.
+> I can't hear any sound at all! Check your mic in Chat, Microphone, and that Windows lets desktop apps use it.
+Mình hoàn toàn không nghe thấy âm thanh! Hãy kiểm tra micro trong Trò chuyện, Micro, và xem Windows có cho ứng dụng máy tính dùng micro không.
+> Whisper isn't working, so I fell back to Windows' own ears. The reason is in voice-log.txt.
+Whisper không hoạt động, nên mình đã dùng tai của Windows. Lý do nằm trong voice-log.txt.

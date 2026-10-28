@@ -708,3 +708,7 @@ INSTALACE
 Zastaveno
 > Capri could not finish. Your files are still here.
 Capri nemohla dokončit. Tvé soubory tu stále jsou.
+> I can't hear any sound at all! Check your mic in Chat, Microphone, and that Windows lets desktop apps use it.
+Neslyším vůbec žádný zvuk! Zkontroluj mikrofon v Chat, Mikrofon a jestli Windows dovoluje desktopovým aplikacím ho používat.
+> Whisper isn't working, so I fell back to Windows' own ears. The reason is in voice-log.txt.
+Whisper nefunguje, tak jsem použila vlastní uši Windows. Důvod je ve voice-log.txt.

@@ -34,7 +34,7 @@ The latest release is **V2.3**. Get `Capri-Setup.exe` from the [Releases](../../
 
 **How do I install her?** Download `Capri-Setup.exe` (or unzip the release zip first) and run it. That is all.
 
-**She doesn't hear me, or hears the wrong thing.** She starts with Windows' own speech recognizer, which is basic and **English only**. For better hearing, add Whisper (next question). Also pick your microphone in her menu under Chat, Microphone instead of "Windows default", and check that Windows allows desktop apps to use it (Settings, Privacy & security, Microphone). If she says nothing at all when you talk, open an issue and say what she did (even "nothing").
+**She doesn't hear me, or hears the wrong thing.** She starts with Windows' own speech recognizer, which is basic and **English only**. For better hearing, add Whisper (next question). Also pick your microphone in her menu under Chat, Microphone instead of "Windows default", and check that Windows allows desktop apps to use it (Settings, Privacy & security, Microphone). She now says what is wrong when she can: "I can't hear any sound at all" means the microphone is silent or blocked, and "Whisper isn't working" means your Whisper files are set up wrong. Every attempt is also written to `%LocalAppData%\Capri\voice-log.txt` with the reason (no recording and no words, only numbers and errors). If it is still a mystery, open an issue and paste the last few lines of that file.
 
 **Which Whisper do I need?** Whisper is optional and runs locally; nothing is sent anywhere. She needs two things in `%LocalAppData%\Capri\speech`:
 - `bin\Release\whisper-cli.exe`, from a [whisper.cpp](https://github.com/ggml-org/whisper.cpp) Windows build (`bin\whisper-cli.exe` also works).

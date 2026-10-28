@@ -708,3 +708,7 @@ INSTALACIÓN
 Detenido
 > Capri could not finish. Your files are still here.
 Capri no pudo terminar. Tus archivos siguen aquí.
+> I can't hear any sound at all! Check your mic in Chat, Microphone, and that Windows lets desktop apps use it.
+¡No oigo ningún sonido! Revisa tu micrófono en Chat, Micrófono, y que Windows permita usarlo a las aplicaciones de escritorio.
+> Whisper isn't working, so I fell back to Windows' own ears. The reason is in voice-log.txt.
+Whisper no funciona, así que usé los oídos de Windows. El motivo está en voice-log.txt.
