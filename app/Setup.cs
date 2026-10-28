@@ -18,7 +18,7 @@ namespace CapriSetup
 {
     internal static class Program
     {
-        internal const string Version = "2.3";
+        internal const string Version = "2.4";
         internal static string InstallPath { get { return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Capri"); } }
         internal const string RegistryPath = "Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Capri.Desktop";
         internal const string RunPath = "Software\\Microsoft\\Windows\\CurrentVersion\\Run";
