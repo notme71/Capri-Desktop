@@ -23,6 +23,33 @@ By default everything runs locally. There is no account and no telemetry, and th
 
 The latest release is **V2.2**. Get `Capri-Setup.exe` from the [Releases](../../releases) page and run it. Windows may show a SmartScreen warning because the file is not code-signed; the source is all here, and you can build it yourself (below).
 
+## Quick answers
+
+**Is it safe? Is it a virus?** No. The whole source is in this repository, so you can read it, and you can build it yourself with `build.bat` (below), which uses the compiler already built into Windows. If you would rather not trust the download, that is the way. What she does and does not do:
+- No keyboard or mouse hooks, and no logging of what you type.
+- No account and no telemetry. A screenshot is only taken when you ask her to look, or if you switch on dares that look (off by default, and it asks first). It stays in memory and is never saved.
+- She only goes on the internet for things you turn on: a cloud model with your own key, or "Play X on YouTube", which makes one request to youtube.com. Chat, memory and everything else stay on your computer.
+- Windows may warn about the download because the file is not code-signed. That is the only reason it is flagged, not a sign of anything wrong. On the warning, click **More info**, then **Run anyway**. If you downloaded the zip, right-click it, choose **Properties** and tick **Unblock** before you unzip it.
+- She installs for your Windows user only, no admin needed, and **Remove Capri** in the installer takes her back out.
+
+**How do I install her?** Download `Capri-Setup.exe` (or unzip the release zip first) and run it. That is all.
+
+**She doesn't hear me, or hears the wrong thing.** She starts with Windows' own speech recognizer, which is basic and **English only**. For better hearing, add Whisper (next question). Also pick your microphone in her menu under Chat, Microphone instead of "Windows default", and check that Windows allows desktop apps to use it (Settings, Privacy & security, Microphone). If she says nothing at all when you talk, open an issue and say what she did (even "nothing").
+
+**Which Whisper do I need?** Whisper is optional and runs locally; nothing is sent anywhere. She needs two things in `%LocalAppData%\Capri\speech`:
+- `bin\Release\whisper-cli.exe`, from a [whisper.cpp](https://github.com/ggml-org/whisper.cpp) Windows build (`bin\whisper-cli.exe` also works).
+- A model file in `models`. Use **`ggml-small.en.bin`** (best choice here, about 470 MB) or **`ggml-base.en.bin`** (faster and smaller, less accurate). Both are English-only models. You can get them from the [whisper.cpp models on Hugging Face](https://huggingface.co/ggerganov/whisper.cpp). If neither is there she uses any other `ggml-*.bin` she finds in that folder.
+
+The Chat menu shows which ears are active, "Whisper (small.en)" or "Windows' own". Voice input is English only for now.
+
+**How do I give her a voice?** The voice feature is very much a work in progress. If you still want to try it, see "Voice lines (optional)" below. Nothing is bundled: you add your own `.wav` clips, and her menu has Voice, **Open voice folder…**. No ElevenLabs or any other service is needed.
+
+**Which model do I need? Is it CUDA only?** No. She does not run the AI herself: you connect a model to her through Ollama or LM Studio on your own computer, or through a cloud model with your own API key (Chat, Cloud model settings). Whatever those can run on your setup works, and the cloud option needs no GPU at all. See "Setting up her brain" below.
+
+**Is there a Linux or Mac version?** No. She is a Windows app.
+
+**Which languages?** English, Polski, Français, Deutsch, Español, Italiano and Português. See "Languages" below. Not everything works outside English yet: typed and spoken commands and voice input are English only.
+
 ## What she does
 
 Most of Capri works with **no AI at all**: no model, no internet, nothing extra to install. The AI is only for open-ended conversation and for looking at your screen, and all of it is optional. Anything that needs a model falls back to her built-in lines, or tells you a model is needed.
