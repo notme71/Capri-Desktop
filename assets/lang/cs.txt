@@ -1,0 +1,710 @@
+# Capri translation: Čeština (machine-made, corrections welcome).
+# A line starting with "> " is the English wording; the line under it is the translation.
+# Keep {0} as it is. \n is a new line. Delete a pair to fall back to English.
+
+> Hide Capri
+Skrýt Capri
+> Size
+Velikost
+> Idle motion
+Pohyb v klidu
+> Always on top
+Vždy nahoře
+> Perch on cursor
+Sedět na kurzoru
+> Reactions
+Reakce
+> Play now
+Přehrát teď
+> Automatic
+Automaticky
+> Say something
+Říct něco
+> Hacked note
+Nabourané psaní
+> Glitch only
+Jen glitch
+> Glitch style
+Styl glitche
+> She notices things
+Všímá si věcí
+> She dares me
+Vyzývá mě
+> She looks when she dares (uses a screenshot)
+Dívá se, když vyzývá (použije snímek obrazovky)
+> Each time she dares you (every half hour or so) she will take one screenshot of your screen, keep it in memory only, and send it to your local model. A cloud model only gets it if you allowed screenshots in Chat, Cloud model settings.\n\nTurn this on?
+Pokaždé, když tě vyzve (zhruba každou půlhodinu), pořídí jeden snímek tvé obrazovky, ponechá ho jen v paměti a pošle ho tvému místnímu modelu. Cloudový model ho dostane, jen pokud jsi povolil snímky v Chat, Nastavení cloudového modelu.\n\nZapnout?
+> Dare me now
+Vyzvi mě teď
+> Sync with Capri: {0}%
+Synchronizace s Capri: {0} %
+> Speech bubbles
+Bubliny s řečí
+> Hide in fullscreen
+Skrýt na celé obrazovce
+> Start with Windows
+Spustit s Windows
+> Windows wouldn't let me.
+Windows mě nepustil.
+> Face in bubbles
+Obličej v bublinách
+> Cut-in cards
+Vstupní karty
+> Music
+Hudba
+> Off
+Vypnuto
+> Looking for what is playing...
+Zjišťuji, co hraje...
+> Show what's playing
+Ukázat, co hraje
+> React to it
+Reagovat na to
+> Uses your local model when it is connected; otherwise a plain cheer.
+Použije tvůj místní model, když je připojený; jinak jen obyčejné povzbuzení.
+> Show it now
+Ukázat teď
+> Bring to this screen
+Přenést na tuto obrazovku
+> Quit Capri
+Ukončit Capri
+> Capri · Double-click to restore
+Capri · Dvojklikem obnovíš
+> Turn on Idle motion to let her do this on her own.
+Zapni pohyb v klidu, aby to dělala sama.
+> Hop off
+Seskočit
+> Ctrl + Alt + C is taken by another app. Right-click Capri's tray icon and choose Hop off.
+Ctrl + Alt + C používá jiná aplikace. Klikni pravým tlačítkem na ikonu Capri v oznamovací oblasti a vyber Seskočit.
+> Voice
+Hlas
+> Mute
+Ztlumit
+> Play a sample
+Přehrát ukázku
+> Open voice folder…
+Otevřít složku s hlasem…
+> No alarms set
+Žádné budíky
+> Cancel
+Zrušit
+> Resume
+Pokračovat
+> Pause
+Pozastavit
+> Timers
+Časovače
+> Study timer
+Časovač učení
+> Start 25 min focus, 5 min break
+Spustit 25 min soustředění, 5 min pauza
+> Start 50 min focus, 10 min break
+Spustit 50 min soustředění, 10 min pauza
+> Stop
+Zastavit
+> Alarms
+Budíky
+> Set a timer…
+Nastavit časovač…
+> Set alarm…
+Nastavit budík…
+> Remind me in
+Připomenout za
+> {0} minutes
+{0} minut
+> Chime
+Zvonění
+> Try 10 minutes, 30 seconds or an hour.
+Piš anglicky, například 10 minutes, 30 seconds nebo an hour.
+> Try 7:30, 6:15 pm or in 20m, then an optional note.
+Piš anglicky, například 7:30, 6:15 pm nebo in 20m, a pak volitelná poznámka.
+> Chat
+Chat
+> Speak to her
+Promluvit si s ní
+> Windows has no speech recognizer installed.
+Windows nemá nainstalované rozpoznávání řeči.
+> Mic button on hover
+Tlačítko mikrofonu při najetí myší
+> Talk to Capri…
+Promluvit si s Capri…
+> Microphone
+Mikrofon
+> Windows default
+Výchozí ve Windows
+> Use Whisper when it is installed
+Použít Whisper, když je nainstalovaný
+> Memory
+Paměť
+> Let her remember things
+Nechat ji si pamatovat věci
+> Show what she remembers
+Ukázat, co si pamatuje
+> Forget everything
+Zapomenout všechno
+> Make her forget everything she has noted about you?
+Přimět ji zapomenout všechno, co si o tobě poznamenala?
+> Cloud model settings…
+Nastavení cloudového modelu…
+> Use the cloud model
+Použít cloudový model
+> Look at my screen
+Podívat se na mou obrazovku
+> Let her look when I ask
+Nechat ji dívat se, když o to požádám
+> Wait through pauses
+Počkat při pauzách
+> Short (1.2 seconds)
+Krátká (1,2 sekundy)
+> Normal (2.5 seconds)
+Normální (2,5 sekundy)
+> Long (4 seconds)
+Dlouhá (4 sekundy)
+> Use a local model
+Použít místní model
+> Looking for a model…
+Hledám model…
+> Model
+Model
+> Server address…
+Adresa serveru…
+> Edit her personality…
+Upravit její osobnost…
+> Forget this conversation
+Zapomenout tuto konverzaci
+> SEND
+ODESLAT
+> MIC
+MIK
+> Cloud model
+Cloudový model
+> Provider
+Poskytovatel
+> Address (custom only)
+Adresa (jen vlastní)
+> Also send my screen when I ask her to look
+Poslat také mou obrazovku, když ji požádám, aby se podívala
+> Also send what she remembers about me
+Poslat také to, co si o mně pamatuje
+> Your chat messages go to this company, along with her persona. The key is kept encrypted for your Windows account only. Nothing else leaves your computer unless a box above is ticked.
+Tvé zprávy z chatu jdou této společnosti spolu s její osobností. Klíč je uložen zašifrovaně jen pro tvůj účet Windows. Nic dalšího neopustí tvůj počítač, pokud není zaškrtnuté políčko výše.
+> SAVE
+ULOŽIT
+> Enter a model name.
+Zadej název modelu.
+> A custom address must start with https://
+Vlastní adresa musí začínat https://
+> Paste your key.
+Vlož svůj klíč.
+> CANCEL
+ZRUŠIT
+> Remove saved key
+Odebrat uložený klíč
+> Key
+Klíč
+> Key (saved, leave empty to keep it)
+Klíč (uložen, prázdné = ponechat)
+> Custom (OpenAI-style, https)
+Vlastní (ve stylu OpenAI, https)
+> A model id from openrouter.ai/models
+ID modelu z openrouter.ai/models
+> A model name from your OpenAI account
+Název modelu z tvého účtu OpenAI
+> For example claude-haiku-5-5
+Například claude-haiku-5-5
+> The model name your server expects
+Název modelu, který tvůj server očekává
+> OK
+OK
+> Small
+Malá
+> Medium
+Střední
+> Large
+Velká
+> Stretch
+Protáhnout se
+> Look around
+Rozhlédnout se
+> Yawn
+Zívnout
+> Fall asleep
+Usnout
+> Head pat
+Pohlazení po hlavě
+> Peek
+Nakouknout
+> Sit on a window
+Sednout na okno
+> Mischief
+Neplechy
+> Set a timer
+Nastavit časovač
+> How long?
+Jak dlouho?
+> Set an alarm
+Nastavit budík
+> When should she nudge you?
+Kdy tě má upozornit?
+> Server address
+Adresa serveru
+> Where is your local model running?
+Kde běží tvůj místní model?
+> Leave empty to look for Ollama or LM Studio. Only this computer is allowed.
+Nech prázdné, aby hledala Ollamu nebo LM Studio. Povolen je jen tento počítač.
+> That isn't on this computer. Try localhost:11434.
+To není na tomto počítači. Zkus localhost:11434.
+> Bars
+Pruhy
+> Tear
+Trhlina
+> Corruption
+Poškození
+> Hex rain
+Hex déšť
+> Sync bar
+Pruh synchronizace
+> Chaser
+Honič
+> Language
+Jazyk
+> Capri will use this language the next time she starts. Quit her from the tray and open her again.
+Capri použije tento jazyk při dalším spuštění. Ukonči ji z oznamovací oblasti a otevři ji znovu.
+> Capri · Ctrl + Alt + C to hop off
+Capri · Ctrl + Alt + C pro seskočení
+> Capri · Hop off from this menu
+Capri · Seskoč z této nabídky
+> No study session
+Žádné učení
+> Focus
+Soustředění
+> Break
+Pauza
+> {0} done
+Hotovo: {0}
+> Paused {0}
+Pozastaveno {0}
+> focus. {0} minutes. i'll keep quiet.
+soustředění. {0} minut. budu zticha.
+> time. take {0} minutes.
+čas. dej si {0} minut.
+> break's over. {0} more minutes.
+pauza skončila. ještě {0} minut.
+> time's up! {0}.
+čas vypršel! {0}.
+> you missed {0}.
+zmeškal jsi {0}.
+> it's {0}.
+je {0}.
+> alarm set for {0}.
+budík nastaven na {0}.
+> timer's on for {0}.
+časovač běží: {0}.
+> Nothing playing
+Nic nehraje
+> Playing: {0}
+Hraje: {0}
+> Paused: {0}
+Pozastaveno: {0}
+> NOW PLAYING
+PRÁVĚ HRAJE
+> {0} second|{0} seconds
+{0} sekunda|{0} sekundy|{0} sekund
+> {0} minute|{0} minutes
+{0} minuta|{0} minuty|{0} minut
+> {0} hour|{0} hours
+{0} hodina|{0} hodiny|{0} hodin
+> {0} min
+{0} min
+> an hour
+hodina
+> {0} hours
+{0} hodiny
+> SYNC {0}%.
+SYNCHRONIZACE {0} %.
+> UNLOCKED: {0}.
+ODEMČENO: {0}.
+> SYNC 100%. COMPLETE. You're mine now. Kidding! ...Mostly.
+SYNCHRONIZACE 100 %. DOKONČENA. Teď jsi můj. Dělám si legraci! ...Skoro.
+> TEAR
+TRHLINA
+> CORRUPTION
+POŠKOZENÍ
+> HEX RAIN
+HEX DÉŠŤ
+> SYNC BAR
+PRUH SYNCHRONIZACE
+> CHASER
+HONIČ
+> COMPLETE
+DOKONČENO
+> Cloud brain works!
+Cloudový mozek funguje!
+> Cloud trouble: {0}. Chat, Cloud model settings to change it.
+Problém s cloudem: {0}. Změň to v Chat, Nastavení cloudového modelu.
+> no answer
+žádná odpověď
+> found {0}.
+našla jsem {0}.
+> i can't find a local model. is ollama or lm studio running?
+nemůžu najít místní model. běží ollama nebo lm studio?
+> My brain's switched off! Chat, then Use a local model.
+Můj mozek je vypnutý! Chat, pak Použít místní model.
+> I'm not connected yet. Looking again!
+Ještě nejsem připojená. Hledám znovu!
+> I can't reach my brain! Is the model still running?
+Nemůžu se dostat ke svému mozku! Model ještě běží?
+> Hm, I lost my train of thought!
+Hm, ztratila jsem myšlenku!
+> I have no ears! Add an English speech pack in Windows settings.
+Nemám uši! Přidej anglický jazykový balíček řeči v nastavení Windows.
+> I can't use that microphone! Try another one in Chat, Microphone.
+Ten mikrofon nemůžu použít! Zkus jiný v Chat, Mikrofon.
+> Can't hear you!
+Neslyším tě!
+> Still can't hear you!
+Pořád tě neslyším!
+> Hello?? Still can't hear you!
+Haló?? Pořád tě neslyším!
+> Nope, still nothing! Try another mic in Chat, Microphone!
+Ne, pořád nic! Zkus jiný mikrofon v Chat, Mikrofon!
+> Sorry, say that again?
+Promiň, řekneš to znovu?
+> You've told me not to look! Chat, Let her look when I ask.
+Řekl jsi mi, ať se nedívám! Chat, Nechat ji dívat se, když o to požádám.
+> I need my brain connected to look. Chat, Use a local model.
+Abych se mohla dívat, potřebuju připojený mozek. Chat, Použít místní model.
+> Looking stays on your computer. Run a local model, or allow it for the cloud in Chat, Cloud model.
+Dívání zůstává na tvém počítači. Spusť místní model nebo to povol pro cloud v Chat, Cloudový model.
+> I can only look through Ollama, sorry!
+Dívat se můžu jen přes Ollamu, promiň!
+> I can't see the screen right now!
+Teď nevidím obrazovku!
+> My eyes went blurry. Ask again?
+Rozmazalo se mi vidění. Zeptáš se znovu?
+> Hm, that won't open!
+Hm, to se neotevře!
+> Still on the last one!
+Pořád jsem u té poslední!
+> That's already playing!
+To už hraje!
+> Finding {0} on Spotify…
+Hledám {0} na Spotify…
+> Finding {0} on YouTube…
+Hledám {0} na YouTube…
+> I can't find Spotify on this PC.
+Na tomhle počítači nemůžu najít Spotify.
+> Spotify isn't open or won't let me in.
+Spotify není otevřené nebo mě nepustí.
+> I couldn't find {0} in Spotify's results.
+V výsledcích Spotify jsem nenašla {0}.
+> Playing {0}.
+Hraje {0}.
+> Playing {0}!
+Hraje {0}!
+> I pressed play on {0} but nothing started.
+Stiskla jsem přehrát u {0}, ale nic se nespustilo.
+> I couldn't pick one, so here are the results.
+Nedokázala jsem vybrat, tak tady jsou výsledky.
+> My memory's switched off! Chat, Memory.
+Moje paměť je vypnutá! Chat, Paměť.
+> Not that one! Passwords belong in a password manager.
+Tohle ne! Hesla patří do správce hesel.
+> Hm, say that again?
+Hm, řekneš to znovu?
+> Forgotten! Convenient, huh?
+Zapomenuto! Pohodlné, že?
+> I don't have anything like that!
+Nic takového nemám!
+> That's {0} things! Be more specific.
+To je {0} věcí! Upřesni to.
+> Everything about you? Gone! Hi, I'm Capri!
+Všechno o tobě? Pryč! Ahoj, já jsem Capri!
+> Timer's on for {0}!
+Časovač běží: {0}!
+> That's plenty of alarms already!
+To je už dost budíků!
+> Alarm's set for {0}!
+Budík nastaven na {0}!
+> All cleared!
+Všechno vymazáno!
+> Focus time! {0} minutes. I'll keep quiet!
+Čas soustředění! {0} minut. Budu zticha!
+> We're not studying!
+My se neučíme!
+> Ok, stopped!
+Dobře, zastaveno!
+> Looking up {0}!
+Hledám {0}!
+> Opened {0}. The rest I can't do yet.
+Otevřeno: {0}. Zbytek zatím neumím.
+> Nothing's playing!
+Nic nehraje!
+> It's already playing!
+Už to hraje!
+> Skipped!
+Přeskočeno!
+> Back we go!
+Vracíme se!
+> Louder!
+Hlasitěji!
+> Quieter!
+Tišeji!
+> I don't see anything playing!
+Nevidím, že by něco hrálo!
+> mischief on. ctrl+alt+c stops me.
+neplechy zapnuty. ctrl+alt+c mě zastaví.
+> i have no voice yet. open the voice folder to give me one.
+zatím nemám hlas. otevři složku s hlasem a dej mi ho.
+> i'm muted.
+jsem ztlumená.
+> ok. stopped.
+dobře. zastaveno.
+> that's plenty of alarms.
+to je dost budíků.
+> nowhere to sit. try a window lower on the screen.
+není kam sednout. zkus okno níž na obrazovce.
+> Ooh, nice view from up here!
+Ooh, odsud je pěkný výhled!
+> Comfy! Don't mind me!
+Pohodlné! Nevšímej si mě!
+> Is this seat taken? Too late!
+Je tohle místo obsazené? Pozdě!
+> Best seat in the house!
+Nejlepší místo v sále!
+> Mmh, right there! Don't stop!
+Mmh, přesně tam! Nepřestávej!
+> Hehe! Careful, I might get used to this!
+Hehe! Pozor, ještě si zvyknu!
+> Oh? Oh! Okay, that's allowed!
+Oh? Oh! Dobře, to je povoleno!
+> Pats are a very good bribe, you know!
+Hlazení je skvělý úplatek, víš?
+> Boop! Rude! Do it again!
+Bum! Nezdvořilé! Udělej to znovu!
+> Yes? I'm busy being adorable!
+Ano? Mám práci s tím, že jsem rozkošná!
+> You rang?
+Volal jsi?
+> Hey! I saw that!
+Hej! Já to viděla!
+> I wasn't asleep! I was... recharging. Dramatically!
+Nespala jsem! Já... dobíjela jsem se. Dramaticky!
+> Mmh? Oh, you're back! Perfect timing!
+Mmh? Oh, jsi zpátky! Akorát včas!
+> Ooh, did I miss anything fun?
+Ooh, nezmeškala jsem něco zábavného?
+> Hi hi! Miss me?
+Ahoj, ahoj! Chyběla jsem ti?
+> Come on, let's be friends!
+Pojď, buďme kamarádi!
+> So what are we getting into today?
+Tak do čeho se dnes pustíme?
+> Psst! Something reckless? I'm in!
+Psst! Něco bláznivého? Jsem pro!
+> I'm only borrowing a little CPU! A LITTLE!
+Jen si půjčím trochu procesoru! TROCHU!
+> Ooh, what's this one?
+Ooh, co je tohle za písničku?
+> New track! Turn it up!
+Nová písnička! Zesil to!
+> Sure, play that. I'm listening!
+Jasně, pusť to. Poslouchám!
+> Ooh, a vibe!
+Ooh, to je nálada!
+> Ha! Bold choice!
+Ha! Odvážná volba!
+> Oh. You're back.
+Oh. Jsi zpátky.
+> Back already? I barely noticed.
+Už jsi zpátky? Skoro jsem si nevšimla.
+> Gone {0} minutes. Not that I counted.
+Byl jsi pryč {0} minut. Ne že bych počítala.
+> Where'd you go? Tell me everything.
+Kam jsi šel? Pověz mi všechno.
+> It's {0}. Nobody's stoppin' ya.
+Je {0}. Nikdo tě nezastaví.
+> Still up at {0}? Good. More time with me.
+Ještě vzhůru v {0}? Dobře. Víc času se mnou.
+> {0}. Great time for bad ideas.
+{0}. Skvělý čas na špatné nápady.
+> Battery's at {0}%. If you die, I'm stuck in a dead chip!
+Baterie je na {0} %. Když se vypneš, zůstanu uvězněná v mrtvém čipu!
+> {0}% battery. Plug in! I'd be in a real jam.
+Baterie {0} %. Zapoj se! Byla bych ve velkém maléru.
+> Your CPU's at {0}%. That's not me! ...Mostly.
+Tvůj procesor je na {0} %. To nejsem já! ...Většinou.
+> Somethin's eatin' {0}% of your CPU. Not me. Probably.
+Něco požírá {0} % tvého procesoru. Já ne. Asi.
+> {1} for {0}? Wow.
+{1} už {0}? Páni.
+> Still in {1}? It's been {0}.
+Pořád v {1}? Už je to {0}.
+> {0} in {1}. I'm impressed. And bored.
+{0} v {1}. Jsem ohromená. A nudím se.
+> Yay! You did it!
+Hurá! Zvládl jsi to!
+> Told ya you could.
+Říkala jsem, že to dokážeš.
+> Look at you, doin' stuff!
+Koukej, ty něco děláš!
+> See? Fun.
+Vidíš? Zábava.
+> Good boy!
+Hodný kluk!
+> Noted! I never forget!
+Zapsáno! Já nikdy nezapomínám!
+> Got it. Filed away!
+Rozumím. Založeno!
+> Mm-hm. I'll keep that!
+Mm-hm. Tohle si nechám!
+> Written on my soul. Kidding!
+Zapsáno na mé duši. Dělám si legraci!
+> Done!
+Hotovo!
+> Easy!
+Snadné!
+> Sure thing!
+Jasně!
+> On it!
+Už na tom jsem!
+> Dare you to close every tab except one.
+Vsadím se, že nezavřeš všechny karty kromě jedné.
+> Dare you to search for your own name. All of it.
+Vsadím se, že nevyhledáš své vlastní jméno. Celé.
+> Dare you to open the weirdest bookmark you have.
+Vsadím se, že neotevřeš nejdivnější záložku, kterou máš.
+> Dare you to read the last comment section you avoided.
+Vsadím se, že nepřečteš poslední komentáře, kterým ses vyhýbal.
+> Dare you to send someone a single word. Any word.
+Vsadím se, že nepošleš někomu jediné slovo. Jakékoli.
+> Dare you to answer the oldest message you ignored.
+Vsadím se, že neodpovíš na nejstarší zprávu, kterou jsi ignoroval.
+> Dare you to change your status to somethin' awful.
+Vsadím se, že si nezměníš status na něco otřesného.
+> Dare you to rename one variable to somethin' awful.
+Vsadím se, že nepřejmenuješ jednu proměnnou na něco otřesného.
+> Dare you to delete a comment that lies.
+Vsadím se, že nesmažeš komentář, který lže.
+> Dare you to run it without checking it first.
+Vsadím se, že to nespustíš bez předchozí kontroly.
+> Dare you to skip this song right now.
+Vsadím se, že tuhle písničku teď hned nepřeskočíš.
+> Dare you to play somethin' you'd be embarrassed to show me.
+Vsadím se, že nepustíš něco, co by ses styděl mi ukázat.
+> Dare you to turn it up one notch. Just one.
+Vsadím se, že to nezesílíš o jeden dílek. Jen o jeden.
+> Dare you to write one sentence you'd never send.
+Vsadím se, že nenapíšeš jednu větu, kterou bys nikdy neposlal.
+> Dare you to delete your favorite paragraph.
+Vsadím se, že nesmažeš svůj oblíbený odstavec.
+> Dare you to rewrite the first line, worse.
+Vsadím se, že nepřepíšeš první řádek, ještě hůř.
+> Dare you to stand up and stretch. Right now.
+Vsadím se, že nevstaneš a neprotáhneš se. Hned teď.
+> Dare you to drink some water. I'll wait.
+Vsadím se, že se nenapiješ vody. Počkám.
+> Dare you to change your wallpaper to somethin' awful.
+Vsadím se, že si nedáš otřesnou tapetu.
+> Dare you to open the last thing you downloaded.
+Vsadím se, že neotevřeš poslední věc, kterou jsi stáhl.
+> Dare you to say hi to the next person you see.
+Vsadím se, že nepozdravíš dalšího člověka, kterého uvidíš.
+> Dare you to look away from the screen for a whole minute.
+Vsadím se, že se nedokážeš celou minutu nepodívat na obrazovku.
+> Hi! It's me! I live here now!
+Ahoj! To jsem já! Teď tu bydlím!
+> Ransom note: one (1) head pat. Non-negotiable!
+Výpalné: jedno (1) pohlazení po hlavě. Bez vyjednávání!
+> Engram sync 87%... oops, that part was you! No take-backs!
+Synchronizace engramu 87 %... ups, tahle část jsi byl ty! Žádné vracení!
+> I borrowed a little of your CPU. A LITTLE! Don't you me!
+Půjčila jsem si trochu tvého procesoru. TROCHU! Nezačínej!
+> You've been hacked! ...Kidding! Unless?
+Byl jsi nabourán! ...Dělám si legraci! Nebo ne?
+> You work too hard. Let's play instead, it's your idea!
+Pracuješ moc. Pojďme si radši hrát, je to tvůj nápad!
+> Friends don't check Task Manager. Just saying!
+Kamarádi nekoukají do Správce úloh. Jen říkám!
+> Hacking complete! Nothing was harmed! Probably!
+Hackování dokončeno! Nic se nepoškodilo! Asi!
+> Is that your cursor? Mine now. Kidding! ...Mostly!
+Je tohle tvůj kurzor? Teď je můj. Dělám si legraci! ...Většinou!
+> I rearranged some bits. They looked bored!
+Přeskládala jsem pár bitů. Vypadaly znuděně!
+> Your screen looked too tidy. Fixed it!
+Tvá obrazovka vypadala moc uklizeně. Spravila jsem to!
+> Ignore the red stuff. It is decorative!
+Ignoruj to červené. Je to dekorace!
+> Sync at 87%. The other 13% is you being nosy!
+Synchronizace na 87 %. Zbylých 13 % je tvoje zvědavost!
+> Oops. Did I do that? Yes. Yes I did!
+Ups. To jsem udělala já? Ano. Ano, já!
+> checking the folder
+kontroluji složku
+> That folder already contains an unrecognized Capri.exe. Move it before installing.
+Ve složce už je nerozpoznaný soubor Capri.exe. Před instalací ho přesuň.
+> Quit Capri from her tray menu, then install again.
+Ukonči Capri z její nabídky v oznamovací oblasti a pak instaluj znovu.
+> copying her chip
+kopíruji její čip
+> making shortcuts
+vytvářím zástupce
+> telling Windows about her
+říkám Windows o ní
+> SYNC COMPLETE
+SYNCHRONIZACE DOKONČENA
+> The Capri install marker could not be verified.
+Značku instalace Capri se nepodařilo ověřit.
+> Quit Capri from her tray menu before removing her.
+Před odebráním ukonči Capri z její nabídky v oznamovací oblasti.
+> The uninstaller is still open. Close it and try removing Capri again.
+Odinstalátor je stále otevřený. Zavři ho a zkus Capri odebrat znovu.
+> What you chose to keep (settings, notes, speech files) is still in {0}.
+To, co jsi se rozhodl ponechat (nastavení, poznámky, soubory řeči), je stále v {0}.
+> Capri has been removed.
+Capri byla odebrána.
+> Capri could not be removed
+Capri se nepodařilo odebrat
+> ENGRAM SYNC
+SYNCHRONIZACE ENGRAMU
+> Remove Capri
+Odebrat Capri
+> Install Capri
+Nainstalovat Capri
+> Bye-bye.
+Pa pa.
+> Hi! It's me.\nI live here now.
+Ahoj! To jsem já.\nTeď tu bydlím.
+> Remove the app and its shortcuts for this Windows user. Quit Capri from the tray first.
+Odebere aplikaci a její zástupce pro tohoto uživatele Windows. Nejdřív ukonči Capri z oznamovací oblasti.
+> She installs for you only. No admin needed. Right-click her for her menu.
+Nainstaluje se jen pro tebe. Není potřeba správce. Klikni na ni pravým tlačítkem pro nabídku.
+> Add a desktop shortcut
+Přidat zástupce na plochu
+> Start Capri when I sign in to Windows
+Spustit Capri při přihlášení do Windows
+> Open Capri when finished
+Po dokončení otevřít Capri
+> Also delete my settings, her notes about me and any saved key
+Smazat také má nastavení, její poznámky o mně a uložený klíč
+> Also delete the speech and voice files ({0} MB)
+Smazat také soubory řeči a hlasu ({0} MB)
+> Nothing is removed until you click
+Nic se neodebere, dokud neklikneš
+> Ready
+Připraveno
+> REMOVE CAPRI
+ODEBRAT CAPRI
+> INSTALL CAPRI
+NAINSTALOVAT CAPRI
+> Unofficial fan project. Not affiliated with CD PROJEKT RED or Studio Trigger.
+Neoficiální fanouškovský projekt. Nespojený s CD PROJEKT RED ani Studio Trigger.
+> REMOVE
+ODEBÍRÁNÍ
+> INSTALL
+INSTALACE
+> Stopped
+Zastaveno
+> Capri could not finish. Your files are still here.
+Capri nemohla dokončit. Tvé soubory tu stále jsou.

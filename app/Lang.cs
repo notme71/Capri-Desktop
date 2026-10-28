@@ -20,14 +20,16 @@ namespace CapriDesktop
         {
             new string[] { "en", "English" }, new string[] { "pl", "Polski" }, new string[] { "fr", "Français" },
             new string[] { "de", "Deutsch" }, new string[] { "es", "Español" }, new string[] { "it", "Italiano" },
-            new string[] { "pt", "Português" }
+            new string[] { "pt", "Português" }, new string[] { "ru", "Русский" }, new string[] { "cs", "Čeština" },
+            new string[] { "vi", "Tiếng Việt" }
         };
 
         // The English names, for telling the model which language to answer in.
         private static readonly string[][] Names =
         {
             new string[] { "pl", "Polish" }, new string[] { "fr", "French" }, new string[] { "de", "German" },
-            new string[] { "es", "Spanish" }, new string[] { "it", "Italian" }, new string[] { "pt", "Portuguese" }
+            new string[] { "es", "Spanish" }, new string[] { "it", "Italian" }, new string[] { "pt", "Portuguese" },
+            new string[] { "ru", "Russian" }, new string[] { "cs", "Czech" }, new string[] { "vi", "Vietnamese" }
         };
 
         // Added to her personality for the model when a language other than English is chosen; empty for English.
@@ -106,12 +108,15 @@ namespace CapriDesktop
             return english != null && lines.TryGetValue(english, out found) && found.Length > 0 ? found : english;
         }
 
-        // Wording that changes with the number, kept as one key: "{0} minute|{0} minutes". Polish has a third form, for 5 and up.
+        // Wording that changes with the number, kept as one key: "{0} minute|{0} minutes". Polish, Russian and Czech have a third form, for 5 and up; Vietnamese has one form.
         internal static string Count(string forms, int n)
         {
             string[] parts = T(forms).Split('|');
             int index;
             if (Code == "pl") index = n == 1 ? 0 : (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) ? 1 : 2;
+            else if (Code == "ru") index = (n % 10 == 1 && n % 100 != 11) ? 0 : (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) ? 1 : 2;
+            else if (Code == "cs") index = n == 1 ? 0 : (n >= 2 && n <= 4) ? 1 : 2;
+            else if (Code == "vi") index = 0;
             else if (Code == "fr" || Code == "pt") index = n < 2 ? 0 : 1;
             else index = n == 1 ? 0 : 1;
             if (index >= parts.Length) index = parts.Length - 1;

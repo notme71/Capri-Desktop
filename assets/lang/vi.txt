@@ -1,0 +1,710 @@
+# Capri translation: Tiếng Việt (machine-made, corrections welcome).
+# A line starting with "> " is the English wording; the line under it is the translation.
+# Keep {0} as it is. \n is a new line. Delete a pair to fall back to English.
+
+> Hide Capri
+Ẩn Capri
+> Size
+Kích thước
+> Idle motion
+Chuyển động khi rảnh
+> Always on top
+Luôn ở trên cùng
+> Perch on cursor
+Đậu trên con trỏ
+> Reactions
+Phản ứng
+> Play now
+Chạy ngay
+> Automatic
+Tự động
+> Say something
+Nói gì đó
+> Hacked note
+Ghi chú bị hack
+> Glitch only
+Chỉ glitch
+> Glitch style
+Kiểu glitch
+> She notices things
+Cô ấy để ý mọi thứ
+> She dares me
+Cô ấy thách tôi
+> She looks when she dares (uses a screenshot)
+Cô ấy nhìn khi thách (dùng ảnh chụp màn hình)
+> Each time she dares you (every half hour or so) she will take one screenshot of your screen, keep it in memory only, and send it to your local model. A cloud model only gets it if you allowed screenshots in Chat, Cloud model settings.\n\nTurn this on?
+Mỗi lần cô ấy thách bạn (khoảng nửa tiếng một lần), cô ấy sẽ chụp một ảnh màn hình của bạn, chỉ giữ trong bộ nhớ và gửi cho mô hình cục bộ của bạn. Mô hình đám mây chỉ nhận được nếu bạn đã cho phép chụp màn hình trong Trò chuyện, Cài đặt mô hình đám mây.\n\nBật tính năng này?
+> Dare me now
+Thách tôi ngay
+> Sync with Capri: {0}%
+Đồng bộ với Capri: {0}%
+> Speech bubbles
+Bong bóng thoại
+> Hide in fullscreen
+Ẩn khi toàn màn hình
+> Start with Windows
+Khởi động cùng Windows
+> Windows wouldn't let me.
+Windows không cho phép.
+> Face in bubbles
+Khuôn mặt trong bong bóng
+> Cut-in cards
+Thẻ chen ngang
+> Music
+Nhạc
+> Off
+Tắt
+> Looking for what is playing...
+Đang tìm bài đang phát...
+> Show what's playing
+Hiện bài đang phát
+> React to it
+Phản ứng với nó
+> Uses your local model when it is connected; otherwise a plain cheer.
+Dùng mô hình cục bộ của bạn khi đã kết nối; nếu không thì chỉ cổ vũ đơn giản.
+> Show it now
+Hiện ngay
+> Bring to this screen
+Đưa về màn hình này
+> Quit Capri
+Thoát Capri
+> Capri · Double-click to restore
+Capri · Nhấp đúp để khôi phục
+> Turn on Idle motion to let her do this on her own.
+Bật chuyển động khi rảnh để cô ấy tự làm việc này.
+> Hop off
+Nhảy xuống
+> Ctrl + Alt + C is taken by another app. Right-click Capri's tray icon and choose Hop off.
+Ctrl + Alt + C đang được ứng dụng khác dùng. Nhấp chuột phải vào biểu tượng Capri ở khay hệ thống và chọn Nhảy xuống.
+> Voice
+Giọng nói
+> Mute
+Tắt tiếng
+> Play a sample
+Phát mẫu thử
+> Open voice folder…
+Mở thư mục giọng nói…
+> No alarms set
+Chưa đặt báo thức
+> Cancel
+Hủy
+> Resume
+Tiếp tục
+> Pause
+Tạm dừng
+> Timers
+Hẹn giờ
+> Study timer
+Hẹn giờ học
+> Start 25 min focus, 5 min break
+Bắt đầu 25 phút tập trung, 5 phút nghỉ
+> Start 50 min focus, 10 min break
+Bắt đầu 50 phút tập trung, 10 phút nghỉ
+> Stop
+Dừng
+> Alarms
+Báo thức
+> Set a timer…
+Đặt hẹn giờ…
+> Set alarm…
+Đặt báo thức…
+> Remind me in
+Nhắc tôi sau
+> {0} minutes
+{0} phút
+> Chime
+Chuông
+> Try 10 minutes, 30 seconds or an hour.
+Hãy gõ bằng tiếng Anh, ví dụ 10 minutes, 30 seconds hoặc an hour.
+> Try 7:30, 6:15 pm or in 20m, then an optional note.
+Hãy gõ bằng tiếng Anh, ví dụ 7:30, 6:15 pm hoặc in 20m, rồi thêm ghi chú tùy chọn.
+> Chat
+Trò chuyện
+> Speak to her
+Nói chuyện với cô ấy
+> Windows has no speech recognizer installed.
+Windows chưa cài trình nhận dạng giọng nói.
+> Mic button on hover
+Nút micro khi di chuột
+> Talk to Capri…
+Nói chuyện với Capri…
+> Microphone
+Micro
+> Windows default
+Mặc định của Windows
+> Use Whisper when it is installed
+Dùng Whisper khi đã cài
+> Memory
+Bộ nhớ
+> Let her remember things
+Cho phép cô ấy ghi nhớ
+> Show what she remembers
+Hiện những gì cô ấy nhớ
+> Forget everything
+Quên tất cả
+> Make her forget everything she has noted about you?
+Bắt cô ấy quên mọi thứ đã ghi về bạn?
+> Cloud model settings…
+Cài đặt mô hình đám mây…
+> Use the cloud model
+Dùng mô hình đám mây
+> Look at my screen
+Nhìn màn hình của tôi
+> Let her look when I ask
+Cho phép cô ấy nhìn khi tôi yêu cầu
+> Wait through pauses
+Chờ khi tôi ngừng nói
+> Short (1.2 seconds)
+Ngắn (1,2 giây)
+> Normal (2.5 seconds)
+Vừa (2,5 giây)
+> Long (4 seconds)
+Dài (4 giây)
+> Use a local model
+Dùng mô hình cục bộ
+> Looking for a model…
+Đang tìm mô hình…
+> Model
+Mô hình
+> Server address…
+Địa chỉ máy chủ…
+> Edit her personality…
+Sửa tính cách của cô ấy…
+> Forget this conversation
+Quên cuộc trò chuyện này
+> SEND
+GỬI
+> MIC
+MIC
+> Cloud model
+Mô hình đám mây
+> Provider
+Nhà cung cấp
+> Address (custom only)
+Địa chỉ (chỉ khi tùy chỉnh)
+> Also send my screen when I ask her to look
+Gửi cả màn hình khi tôi nhờ cô ấy nhìn
+> Also send what she remembers about me
+Gửi cả những gì cô ấy nhớ về tôi
+> Your chat messages go to this company, along with her persona. The key is kept encrypted for your Windows account only. Nothing else leaves your computer unless a box above is ticked.
+Tin nhắn trò chuyện của bạn được gửi đến công ty này cùng với tính cách của cô ấy. Khóa được lưu mã hóa, chỉ dành cho tài khoản Windows của bạn. Không có gì khác rời khỏi máy tính của bạn trừ khi bạn đánh dấu một ô ở trên.
+> SAVE
+LƯU
+> Enter a model name.
+Nhập tên mô hình.
+> A custom address must start with https://
+Địa chỉ tùy chỉnh phải bắt đầu bằng https://
+> Paste your key.
+Dán khóa của bạn.
+> CANCEL
+HỦY
+> Remove saved key
+Xóa khóa đã lưu
+> Key
+Khóa
+> Key (saved, leave empty to keep it)
+Khóa (đã lưu, để trống để giữ)
+> Custom (OpenAI-style, https)
+Tùy chỉnh (kiểu OpenAI, https)
+> A model id from openrouter.ai/models
+Một ID mô hình từ openrouter.ai/models
+> A model name from your OpenAI account
+Một tên mô hình từ tài khoản OpenAI của bạn
+> For example claude-haiku-5-5
+Ví dụ claude-haiku-5-5
+> The model name your server expects
+Tên mô hình mà máy chủ của bạn yêu cầu
+> OK
+OK
+> Small
+Nhỏ
+> Medium
+Vừa
+> Large
+Lớn
+> Stretch
+Vươn vai
+> Look around
+Nhìn quanh
+> Yawn
+Ngáp
+> Fall asleep
+Ngủ thiếp đi
+> Head pat
+Xoa đầu
+> Peek
+Ló ra nhìn
+> Sit on a window
+Ngồi lên cửa sổ
+> Mischief
+Nghịch ngợm
+> Set a timer
+Đặt hẹn giờ
+> How long?
+Bao lâu?
+> Set an alarm
+Đặt báo thức
+> When should she nudge you?
+Khi nào cô ấy nên nhắc bạn?
+> Server address
+Địa chỉ máy chủ
+> Where is your local model running?
+Mô hình cục bộ của bạn đang chạy ở đâu?
+> Leave empty to look for Ollama or LM Studio. Only this computer is allowed.
+Để trống để tìm Ollama hoặc LM Studio. Chỉ cho phép máy tính này.
+> That isn't on this computer. Try localhost:11434.
+Cái đó không nằm trên máy tính này. Hãy thử localhost:11434.
+> Bars
+Thanh
+> Tear
+Xé
+> Corruption
+Hỏng
+> Hex rain
+Mưa hex
+> Sync bar
+Thanh đồng bộ
+> Chaser
+Đuổi theo
+> Language
+Ngôn ngữ
+> Capri will use this language the next time she starts. Quit her from the tray and open her again.
+Capri sẽ dùng ngôn ngữ này ở lần khởi động tiếp theo. Hãy thoát cô ấy từ khay hệ thống rồi mở lại.
+> Capri · Ctrl + Alt + C to hop off
+Capri · Ctrl + Alt + C để nhảy xuống
+> Capri · Hop off from this menu
+Capri · Nhảy xuống từ menu này
+> No study session
+Không có buổi học
+> Focus
+Tập trung
+> Break
+Nghỉ
+> {0} done
+Xong {0}
+> Paused {0}
+Tạm dừng {0}
+> focus. {0} minutes. i'll keep quiet.
+tập trung. {0} phút. mình sẽ im lặng.
+> time. take {0} minutes.
+đến giờ rồi. nghỉ {0} phút nhé.
+> break's over. {0} more minutes.
+hết giờ nghỉ. thêm {0} phút nữa.
+> time's up! {0}.
+hết giờ! {0}.
+> you missed {0}.
+bạn đã lỡ {0}.
+> it's {0}.
+bây giờ là {0}.
+> alarm set for {0}.
+đã đặt báo thức lúc {0}.
+> timer's on for {0}.
+đã bật hẹn giờ: {0}.
+> Nothing playing
+Không có gì đang phát
+> Playing: {0}
+Đang phát: {0}
+> Paused: {0}
+Tạm dừng: {0}
+> NOW PLAYING
+ĐANG PHÁT
+> {0} second|{0} seconds
+{0} giây
+> {0} minute|{0} minutes
+{0} phút
+> {0} hour|{0} hours
+{0} giờ
+> {0} min
+{0} phút
+> an hour
+một giờ
+> {0} hours
+{0} giờ
+> SYNC {0}%.
+ĐỒNG BỘ {0}%.
+> UNLOCKED: {0}.
+ĐÃ MỞ KHÓA: {0}.
+> SYNC 100%. COMPLETE. You're mine now. Kidding! ...Mostly.
+ĐỒNG BỘ 100%. HOÀN TẤT. Giờ bạn là của mình rồi. Đùa thôi! ...Gần như vậy.
+> TEAR
+XÉ
+> CORRUPTION
+HỎNG
+> HEX RAIN
+MƯA HEX
+> SYNC BAR
+THANH ĐỒNG BỘ
+> CHASER
+ĐUỔI THEO
+> COMPLETE
+HOÀN TẤT
+> Cloud brain works!
+Bộ não đám mây hoạt động!
+> Cloud trouble: {0}. Chat, Cloud model settings to change it.
+Lỗi đám mây: {0}. Đổi trong Trò chuyện, Cài đặt mô hình đám mây.
+> no answer
+không có trả lời
+> found {0}.
+đã tìm thấy {0}.
+> i can't find a local model. is ollama or lm studio running?
+mình không tìm thấy mô hình cục bộ. ollama hoặc lm studio có đang chạy không?
+> My brain's switched off! Chat, then Use a local model.
+Bộ não của mình đang tắt! Trò chuyện, rồi Dùng mô hình cục bộ.
+> I'm not connected yet. Looking again!
+Mình chưa được kết nối. Tìm lại nhé!
+> I can't reach my brain! Is the model still running?
+Mình không với tới bộ não được! Mô hình vẫn đang chạy chứ?
+> Hm, I lost my train of thought!
+Hm, mình quên mất mình đang nghĩ gì!
+> I have no ears! Add an English speech pack in Windows settings.
+Mình không có tai! Hãy thêm gói giọng nói tiếng Anh trong cài đặt Windows.
+> I can't use that microphone! Try another one in Chat, Microphone.
+Mình không dùng được micro đó! Hãy thử cái khác trong Trò chuyện, Micro.
+> Can't hear you!
+Không nghe thấy bạn!
+> Still can't hear you!
+Vẫn không nghe thấy bạn!
+> Hello?? Still can't hear you!
+Alô?? Vẫn không nghe thấy bạn!
+> Nope, still nothing! Try another mic in Chat, Microphone!
+Không, vẫn chẳng có gì! Hãy thử micro khác trong Trò chuyện, Micro!
+> Sorry, say that again?
+Xin lỗi, nói lại được không?
+> You've told me not to look! Chat, Let her look when I ask.
+Bạn bảo mình đừng nhìn mà! Trò chuyện, Cho phép cô ấy nhìn khi tôi yêu cầu.
+> I need my brain connected to look. Chat, Use a local model.
+Mình cần kết nối bộ não để nhìn. Trò chuyện, Dùng mô hình cục bộ.
+> Looking stays on your computer. Run a local model, or allow it for the cloud in Chat, Cloud model.
+Việc nhìn chỉ diễn ra trên máy tính của bạn. Hãy chạy mô hình cục bộ, hoặc cho phép cho đám mây trong Trò chuyện, Mô hình đám mây.
+> I can only look through Ollama, sorry!
+Mình chỉ nhìn được qua Ollama, xin lỗi nhé!
+> I can't see the screen right now!
+Bây giờ mình không nhìn thấy màn hình!
+> My eyes went blurry. Ask again?
+Mắt mình bị mờ. Hỏi lại nhé?
+> Hm, that won't open!
+Hm, cái đó không mở được!
+> Still on the last one!
+Vẫn đang ở bài trước!
+> That's already playing!
+Cái đó đang phát rồi!
+> Finding {0} on Spotify…
+Đang tìm {0} trên Spotify…
+> Finding {0} on YouTube…
+Đang tìm {0} trên YouTube…
+> I can't find Spotify on this PC.
+Mình không tìm thấy Spotify trên máy này.
+> Spotify isn't open or won't let me in.
+Spotify chưa mở hoặc không cho mình vào.
+> I couldn't find {0} in Spotify's results.
+Mình không tìm thấy {0} trong kết quả của Spotify.
+> Playing {0}.
+Đang phát {0}.
+> Playing {0}!
+Đang phát {0}!
+> I pressed play on {0} but nothing started.
+Mình đã bấm phát {0} nhưng không có gì bắt đầu.
+> I couldn't pick one, so here are the results.
+Mình không chọn được, nên đây là các kết quả.
+> My memory's switched off! Chat, Memory.
+Bộ nhớ của mình đang tắt! Trò chuyện, Bộ nhớ.
+> Not that one! Passwords belong in a password manager.
+Cái đó thì không! Mật khẩu nên để trong trình quản lý mật khẩu.
+> Hm, say that again?
+Hm, nói lại được không?
+> Forgotten! Convenient, huh?
+Quên rồi! Tiện nhỉ?
+> I don't have anything like that!
+Mình không có gì như vậy!
+> That's {0} things! Be more specific.
+Có tới {0} thứ! Nói rõ hơn đi.
+> Everything about you? Gone! Hi, I'm Capri!
+Mọi thứ về bạn? Biến mất rồi! Chào, mình là Capri!
+> Timer's on for {0}!
+Đã bật hẹn giờ: {0}!
+> That's plenty of alarms already!
+Báo thức nhiều quá rồi!
+> Alarm's set for {0}!
+Đã đặt báo thức lúc {0}!
+> All cleared!
+Đã xóa hết!
+> Focus time! {0} minutes. I'll keep quiet!
+Giờ tập trung! {0} phút. Mình sẽ im lặng!
+> We're not studying!
+Mình đâu có đang học!
+> Ok, stopped!
+Ok, đã dừng!
+> Looking up {0}!
+Đang tra {0}!
+> Opened {0}. The rest I can't do yet.
+Đã mở {0}. Phần còn lại mình chưa làm được.
+> Nothing's playing!
+Không có gì đang phát!
+> It's already playing!
+Đang phát rồi!
+> Skipped!
+Đã bỏ qua!
+> Back we go!
+Quay lại nào!
+> Louder!
+To hơn!
+> Quieter!
+Nhỏ hơn!
+> I don't see anything playing!
+Mình không thấy gì đang phát!
+> mischief on. ctrl+alt+c stops me.
+đã bật nghịch ngợm. ctrl+alt+c sẽ ngăn mình lại.
+> i have no voice yet. open the voice folder to give me one.
+mình chưa có giọng nói. hãy mở thư mục giọng nói để cho mình một giọng.
+> i'm muted.
+mình đang bị tắt tiếng.
+> ok. stopped.
+ok. đã dừng.
+> that's plenty of alarms.
+báo thức nhiều quá rồi.
+> nowhere to sit. try a window lower on the screen.
+không có chỗ ngồi. hãy thử cửa sổ thấp hơn trên màn hình.
+> Ooh, nice view from up here!
+Ooh, ở đây nhìn đẹp quá!
+> Comfy! Don't mind me!
+Thoải mái ghê! Đừng để ý mình nhé!
+> Is this seat taken? Too late!
+Chỗ này có người ngồi chưa? Muộn rồi!
+> Best seat in the house!
+Chỗ ngồi đẹp nhất nhà!
+> Mmh, right there! Don't stop!
+Mmh, đúng chỗ đó! Đừng dừng lại!
+> Hehe! Careful, I might get used to this!
+Hehe! Cẩn thận, mình có thể quen mất đấy!
+> Oh? Oh! Okay, that's allowed!
+Ồ? Ồ! Được thôi, cái đó được phép!
+> Pats are a very good bribe, you know!
+Xoa đầu là món hối lộ rất tốt đấy, biết không!
+> Boop! Rude! Do it again!
+Bụp! Bất lịch sự! Làm lại đi!
+> Yes? I'm busy being adorable!
+Sao? Mình đang bận dễ thương mà!
+> You rang?
+Bạn gọi à?
+> Hey! I saw that!
+Này! Mình thấy rồi nhé!
+> I wasn't asleep! I was... recharging. Dramatically!
+Mình không ngủ! Mình đang... sạc pin. Một cách kịch tính!
+> Mmh? Oh, you're back! Perfect timing!
+Mmh? Ồ, bạn về rồi! Đúng lúc ghê!
+> Ooh, did I miss anything fun?
+Ooh, mình có bỏ lỡ gì vui không?
+> Hi hi! Miss me?
+Chào chào! Nhớ mình không?
+> Come on, let's be friends!
+Nào, làm bạn nhé!
+> So what are we getting into today?
+Vậy hôm nay mình làm gì đây?
+> Psst! Something reckless? I'm in!
+Psst! Làm gì liều lĩnh nhé? Mình tham gia!
+> I'm only borrowing a little CPU! A LITTLE!
+Mình chỉ mượn một chút CPU thôi! MỘT CHÚT!
+> Ooh, what's this one?
+Ooh, bài này là gì thế?
+> New track! Turn it up!
+Bài mới! Mở to lên!
+> Sure, play that. I'm listening!
+Được, phát đi. Mình đang nghe!
+> Ooh, a vibe!
+Ooh, hay quá!
+> Ha! Bold choice!
+Ha! Lựa chọn táo bạo!
+> Oh. You're back.
+Ồ. Bạn về rồi.
+> Back already? I barely noticed.
+Về rồi à? Mình hầu như không để ý.
+> Gone {0} minutes. Not that I counted.
+Bạn đi {0} phút. Không phải mình có đếm đâu.
+> Where'd you go? Tell me everything.
+Bạn đã đi đâu? Kể hết cho mình nghe.
+> It's {0}. Nobody's stoppin' ya.
+Bây giờ là {0}. Chẳng ai cản bạn đâu.
+> Still up at {0}? Good. More time with me.
+Vẫn thức lúc {0} à? Tốt. Có thêm thời gian bên mình.
+> {0}. Great time for bad ideas.
+{0}. Giờ tuyệt vời cho những ý tưởng tồi.
+> Battery's at {0}%. If you die, I'm stuck in a dead chip!
+Pin còn {0}%. Nếu bạn tắt, mình sẽ kẹt trong con chip chết!
+> {0}% battery. Plug in! I'd be in a real jam.
+Pin còn {0}%. Cắm sạc đi! Mình sẽ gặp rắc rối to.
+> Your CPU's at {0}%. That's not me! ...Mostly.
+CPU của bạn đang ở {0}%. Không phải mình! ...Gần như vậy.
+> Somethin's eatin' {0}% of your CPU. Not me. Probably.
+Có gì đó đang ngốn {0}% CPU của bạn. Không phải mình. Chắc vậy.
+> {1} for {0}? Wow.
+{1} suốt {0}? Wow.
+> Still in {1}? It's been {0}.
+Vẫn ở {1} à? Đã {0} rồi.
+> {0} in {1}. I'm impressed. And bored.
+{0} trong {1}. Mình ấn tượng. Và chán.
+> Yay! You did it!
+Yay! Bạn làm được rồi!
+> Told ya you could.
+Mình đã bảo bạn làm được mà.
+> Look at you, doin' stuff!
+Nhìn bạn kìa, đang làm việc đấy!
+> See? Fun.
+Thấy chưa? Vui mà.
+> Good boy!
+Cậu bé ngoan!
+> Noted! I never forget!
+Đã ghi! Mình không bao giờ quên!
+> Got it. Filed away!
+Hiểu rồi. Đã lưu lại!
+> Mm-hm. I'll keep that!
+Ừm. Mình giữ cái này nhé!
+> Written on my soul. Kidding!
+Khắc vào tâm hồn mình. Đùa thôi!
+> Done!
+Xong!
+> Easy!
+Dễ ợt!
+> Sure thing!
+Chắc chắn rồi!
+> On it!
+Làm ngay!
+> Dare you to close every tab except one.
+Thách bạn đóng hết các tab, trừ một cái.
+> Dare you to search for your own name. All of it.
+Thách bạn tìm tên của chính mình. Đầy đủ luôn.
+> Dare you to open the weirdest bookmark you have.
+Thách bạn mở dấu trang kỳ lạ nhất của bạn.
+> Dare you to read the last comment section you avoided.
+Thách bạn đọc phần bình luận cuối cùng mà bạn đã né.
+> Dare you to send someone a single word. Any word.
+Thách bạn gửi cho ai đó đúng một từ. Từ nào cũng được.
+> Dare you to answer the oldest message you ignored.
+Thách bạn trả lời tin nhắn cũ nhất mà bạn đã bỏ qua.
+> Dare you to change your status to somethin' awful.
+Thách bạn đổi trạng thái thành thứ gì đó tệ hại.
+> Dare you to rename one variable to somethin' awful.
+Thách bạn đổi tên một biến thành thứ gì đó tệ hại.
+> Dare you to delete a comment that lies.
+Thách bạn xóa một bình luận nói dối.
+> Dare you to run it without checking it first.
+Thách bạn chạy nó mà không kiểm tra trước.
+> Dare you to skip this song right now.
+Thách bạn bỏ qua bài này ngay bây giờ.
+> Dare you to play somethin' you'd be embarrassed to show me.
+Thách bạn phát thứ mà bạn sẽ ngại cho mình xem.
+> Dare you to turn it up one notch. Just one.
+Thách bạn tăng lên một nấc. Chỉ một thôi.
+> Dare you to write one sentence you'd never send.
+Thách bạn viết một câu mà bạn sẽ không bao giờ gửi.
+> Dare you to delete your favorite paragraph.
+Thách bạn xóa đoạn văn yêu thích của bạn.
+> Dare you to rewrite the first line, worse.
+Thách bạn viết lại dòng đầu tiên, tệ hơn.
+> Dare you to stand up and stretch. Right now.
+Thách bạn đứng dậy và vươn vai. Ngay bây giờ.
+> Dare you to drink some water. I'll wait.
+Thách bạn uống chút nước. Mình đợi.
+> Dare you to change your wallpaper to somethin' awful.
+Thách bạn đổi hình nền thành thứ gì đó tệ hại.
+> Dare you to open the last thing you downloaded.
+Thách bạn mở thứ cuối cùng bạn đã tải xuống.
+> Dare you to say hi to the next person you see.
+Thách bạn chào người tiếp theo bạn gặp.
+> Dare you to look away from the screen for a whole minute.
+Thách bạn rời mắt khỏi màn hình suốt một phút.
+> Hi! It's me! I live here now!
+Chào! Là mình đây! Giờ mình sống ở đây!
+> Ransom note: one (1) head pat. Non-negotiable!
+Thư đòi tiền chuộc: một (1) cái xoa đầu. Không thương lượng!
+> Engram sync 87%... oops, that part was you! No take-backs!
+Đồng bộ engram 87%... ối, phần đó là bạn! Không được đòi lại!
+> I borrowed a little of your CPU. A LITTLE! Don't you me!
+Mình mượn một ít CPU của bạn. MỘT ÍT THÔI! Đừng có làm quá!
+> You've been hacked! ...Kidding! Unless?
+Bạn bị hack rồi! ...Đùa thôi! Hay là không?
+> You work too hard. Let's play instead, it's your idea!
+Bạn làm việc nhiều quá. Mình chơi đi, ý của bạn mà!
+> Friends don't check Task Manager. Just saying!
+Bạn bè không mở Task Manager đâu. Nói vậy thôi!
+> Hacking complete! Nothing was harmed! Probably!
+Hack xong! Không có gì bị hỏng! Chắc vậy!
+> Is that your cursor? Mine now. Kidding! ...Mostly!
+Đó là con trỏ của bạn à? Giờ là của mình. Đùa thôi! ...Gần như vậy!
+> I rearranged some bits. They looked bored!
+Mình sắp xếp lại vài bit. Trông chúng chán lắm!
+> Your screen looked too tidy. Fixed it!
+Màn hình của bạn gọn quá. Mình sửa rồi!
+> Ignore the red stuff. It is decorative!
+Cứ lờ màu đỏ đi. Chỉ để trang trí thôi!
+> Sync at 87%. The other 13% is you being nosy!
+Đồng bộ 87%. 13% còn lại là do bạn tò mò!
+> Oops. Did I do that? Yes. Yes I did!
+Ối. Mình làm vậy à? Ừ. Ừ, mình làm đó!
+> checking the folder
+đang kiểm tra thư mục
+> That folder already contains an unrecognized Capri.exe. Move it before installing.
+Thư mục đó đã có một Capri.exe không nhận ra được. Hãy di chuyển nó trước khi cài đặt.
+> Quit Capri from her tray menu, then install again.
+Hãy thoát Capri từ menu khay hệ thống của cô ấy, rồi cài đặt lại.
+> copying her chip
+đang sao chép chip của cô ấy
+> making shortcuts
+đang tạo lối tắt
+> telling Windows about her
+đang báo cho Windows về cô ấy
+> SYNC COMPLETE
+ĐỒNG BỘ HOÀN TẤT
+> The Capri install marker could not be verified.
+Không thể xác minh dấu cài đặt của Capri.
+> Quit Capri from her tray menu before removing her.
+Hãy thoát Capri từ menu khay hệ thống của cô ấy trước khi gỡ cô ấy.
+> The uninstaller is still open. Close it and try removing Capri again.
+Trình gỡ cài đặt vẫn đang mở. Hãy đóng nó rồi thử gỡ Capri lại.
+> What you chose to keep (settings, notes, speech files) is still in {0}.
+Những gì bạn chọn giữ lại (cài đặt, ghi chú, tệp giọng nói) vẫn ở trong {0}.
+> Capri has been removed.
+Capri đã được gỡ.
+> Capri could not be removed
+Không thể gỡ Capri
+> ENGRAM SYNC
+ĐỒNG BỘ ENGRAM
+> Remove Capri
+Gỡ Capri
+> Install Capri
+Cài đặt Capri
+> Bye-bye.
+Tạm biệt nhé.
+> Hi! It's me.\nI live here now.
+Chào! Là mình đây.\nGiờ mình sống ở đây.
+> Remove the app and its shortcuts for this Windows user. Quit Capri from the tray first.
+Gỡ ứng dụng và lối tắt của nó cho người dùng Windows này. Hãy thoát Capri từ khay hệ thống trước.
+> She installs for you only. No admin needed. Right-click her for her menu.
+Cô ấy chỉ được cài cho riêng bạn. Không cần quyền quản trị. Nhấp chuột phải vào cô ấy để mở menu.
+> Add a desktop shortcut
+Thêm lối tắt trên màn hình nền
+> Start Capri when I sign in to Windows
+Khởi động Capri khi tôi đăng nhập Windows
+> Open Capri when finished
+Mở Capri khi hoàn tất
+> Also delete my settings, her notes about me and any saved key
+Xóa luôn cài đặt của tôi, ghi chú của cô ấy về tôi và mọi khóa đã lưu
+> Also delete the speech and voice files ({0} MB)
+Xóa luôn các tệp giọng nói và nhận dạng ({0} MB)
+> Nothing is removed until you click
+Không có gì bị xóa cho đến khi bạn nhấp
+> Ready
+Sẵn sàng
+> REMOVE CAPRI
+GỠ CAPRI
+> INSTALL CAPRI
+CÀI ĐẶT CAPRI
+> Unofficial fan project. Not affiliated with CD PROJEKT RED or Studio Trigger.
+Dự án người hâm mộ không chính thức. Không liên kết với CD PROJEKT RED hay Studio Trigger.
+> REMOVE
+GỠ BỎ
+> INSTALL
+CÀI ĐẶT
+> Stopped
+Đã dừng
+> Capri could not finish. Your files are still here.
+Capri không thể hoàn tất. Các tệp của bạn vẫn còn đây.

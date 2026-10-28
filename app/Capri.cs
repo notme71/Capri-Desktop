@@ -4998,6 +4998,12 @@ namespace CapriDesktop
                             if (!BrainText().Contains("Write every reply in Spanish") || !PersonaText().Contains("Write every reply in Spanish")) throw new Exception("The model was not told to answer in the chosen language.");
                             Lang.Load("pt", langDir);
                             if (!BrainText().Contains("Write every reply in Portuguese") || Lang.Count("{0} minute|{0} minutes", 1) != "1 minuto" || Lang.Count("{0} minute|{0} minutes", 5) != "5 minutos") throw new Exception("Portuguese did not load as expected.");
+                            Lang.Load("ru", langDir);
+                            if (Lang.Count("{0} minute|{0} minutes", 1) != "1 минута" || Lang.Count("{0} minute|{0} minutes", 3) != "3 минуты" || Lang.Count("{0} minute|{0} minutes", 5) != "5 минут" || Lang.Count("{0} minute|{0} minutes", 11) != "11 минут" || Lang.Count("{0} minute|{0} minutes", 21) != "21 минута") throw new Exception("Russian plurals were wrong.");
+                            Lang.Load("cs", langDir);
+                            if (Lang.Count("{0} minute|{0} minutes", 1) != "1 minuta" || Lang.Count("{0} minute|{0} minutes", 3) != "3 minuty" || Lang.Count("{0} minute|{0} minutes", 5) != "5 minut") throw new Exception("Czech plurals were wrong.");
+                            Lang.Load("vi", langDir);
+                            if (Lang.Count("{0} minute|{0} minutes", 1) != "1 phút" || Lang.Count("{0} minute|{0} minutes", 5) != "5 phút" || !BrainText().Contains("Write every reply in Vietnamese")) throw new Exception("Vietnamese did not load as expected.");
                             Lang.Load("en", langDir);
                             if (BrainText().Contains("Write every reply in")) throw new Exception("English was given a language instruction.");
                             checks.Add("PASS the model is told which language to answer in, and not for English");

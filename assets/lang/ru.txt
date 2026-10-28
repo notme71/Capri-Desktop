@@ -1,0 +1,710 @@
+# Capri translation: Русский (machine-made, corrections welcome).
+# A line starting with "> " is the English wording; the line under it is the translation.
+# Keep {0} as it is. \n is a new line. Delete a pair to fall back to English.
+
+> Hide Capri
+Скрыть Капри
+> Size
+Размер
+> Idle motion
+Движения в покое
+> Always on top
+Всегда сверху
+> Perch on cursor
+Сидеть на курсоре
+> Reactions
+Реакции
+> Play now
+Сыграть сейчас
+> Automatic
+Автоматически
+> Say something
+Сказать что-нибудь
+> Hacked note
+Взломанная записка
+> Glitch only
+Только глитч
+> Glitch style
+Стиль глитча
+> She notices things
+Она замечает всякое
+> She dares me
+Она бросает мне вызов
+> She looks when she dares (uses a screenshot)
+Она смотрит, когда бросает вызов (делает снимок экрана)
+> Each time she dares you (every half hour or so) she will take one screenshot of your screen, keep it in memory only, and send it to your local model. A cloud model only gets it if you allowed screenshots in Chat, Cloud model settings.\n\nTurn this on?
+Каждый раз, когда она бросает тебе вызов (примерно раз в полчаса), она делает один снимок твоего экрана, хранит его только в памяти и отправляет твоей локальной модели. Облачная модель получит его, только если ты разрешил снимки в Чат, Настройки облачной модели.\n\nВключить?
+> Dare me now
+Брось мне вызов сейчас
+> Sync with Capri: {0}%
+Синхронизация с Капри: {0}%
+> Speech bubbles
+Облачка с речью
+> Hide in fullscreen
+Прятаться в полноэкранном режиме
+> Start with Windows
+Запускать вместе с Windows
+> Windows wouldn't let me.
+Windows не позволил.
+> Face in bubbles
+Лицо в облачках
+> Cut-in cards
+Карточки-вставки
+> Music
+Музыка
+> Off
+Выключено
+> Looking for what is playing...
+Ищу, что играет...
+> Show what's playing
+Показывать, что играет
+> React to it
+Реагировать на это
+> Uses your local model when it is connected; otherwise a plain cheer.
+Использует твою локальную модель, если она подключена; иначе просто радуется.
+> Show it now
+Показать сейчас
+> Bring to this screen
+Перенести на этот экран
+> Quit Capri
+Выйти из Капри
+> Capri · Double-click to restore
+Капри · Двойной щелчок, чтобы вернуть
+> Turn on Idle motion to let her do this on her own.
+Включи движения в покое, чтобы она делала это сама.
+> Hop off
+Слезть
+> Ctrl + Alt + C is taken by another app. Right-click Capri's tray icon and choose Hop off.
+Ctrl + Alt + C занято другим приложением. Щёлкни правой кнопкой по значку Капри в трее и выбери «Слезть».
+> Voice
+Голос
+> Mute
+Без звука
+> Play a sample
+Воспроизвести пример
+> Open voice folder…
+Открыть папку с голосом…
+> No alarms set
+Будильников нет
+> Cancel
+Отмена
+> Resume
+Продолжить
+> Pause
+Пауза
+> Timers
+Таймеры
+> Study timer
+Таймер учёбы
+> Start 25 min focus, 5 min break
+Начать: 25 мин фокуса, 5 мин перерыва
+> Start 50 min focus, 10 min break
+Начать: 50 мин фокуса, 10 мин перерыва
+> Stop
+Стоп
+> Alarms
+Будильники
+> Set a timer…
+Поставить таймер…
+> Set alarm…
+Поставить будильник…
+> Remind me in
+Напомнить через
+> {0} minutes
+{0} минут
+> Chime
+Сигнал
+> Try 10 minutes, 30 seconds or an hour.
+Пиши по-английски, например 10 minutes, 30 seconds или an hour.
+> Try 7:30, 6:15 pm or in 20m, then an optional note.
+Пиши по-английски, например 7:30, 6:15 pm или in 20m, а затем необязательная заметка.
+> Chat
+Чат
+> Speak to her
+Поговорить с ней
+> Windows has no speech recognizer installed.
+В Windows не установлено распознавание речи.
+> Mic button on hover
+Кнопка микрофона при наведении
+> Talk to Capri…
+Поговорить с Капри…
+> Microphone
+Микрофон
+> Windows default
+По умолчанию в Windows
+> Use Whisper when it is installed
+Использовать Whisper, если он установлен
+> Memory
+Память
+> Let her remember things
+Позволить ей запоминать
+> Show what she remembers
+Показать, что она помнит
+> Forget everything
+Забыть всё
+> Make her forget everything she has noted about you?
+Заставить её забыть всё, что она записала о тебе?
+> Cloud model settings…
+Настройки облачной модели…
+> Use the cloud model
+Использовать облачную модель
+> Look at my screen
+Смотреть на мой экран
+> Let her look when I ask
+Позволить ей смотреть, когда я прошу
+> Wait through pauses
+Ждать во время пауз
+> Short (1.2 seconds)
+Короткая (1,2 секунды)
+> Normal (2.5 seconds)
+Обычная (2,5 секунды)
+> Long (4 seconds)
+Длинная (4 секунды)
+> Use a local model
+Использовать локальную модель
+> Looking for a model…
+Ищу модель…
+> Model
+Модель
+> Server address…
+Адрес сервера…
+> Edit her personality…
+Изменить её характер…
+> Forget this conversation
+Забыть этот разговор
+> SEND
+ОТПРАВИТЬ
+> MIC
+МИК
+> Cloud model
+Облачная модель
+> Provider
+Поставщик
+> Address (custom only)
+Адрес (только свой)
+> Also send my screen when I ask her to look
+Также отправлять мой экран, когда я прошу её посмотреть
+> Also send what she remembers about me
+Также отправлять то, что она помнит обо мне
+> Your chat messages go to this company, along with her persona. The key is kept encrypted for your Windows account only. Nothing else leaves your computer unless a box above is ticked.
+Твои сообщения из чата уходят этой компании вместе с её характером. Ключ хранится в зашифрованном виде только для твоей учётной записи Windows. Больше ничего не покидает компьютер, если не отмечен флажок выше.
+> SAVE
+СОХРАНИТЬ
+> Enter a model name.
+Введи название модели.
+> A custom address must start with https://
+Свой адрес должен начинаться с https://
+> Paste your key.
+Вставь свой ключ.
+> CANCEL
+ОТМЕНА
+> Remove saved key
+Удалить ключ
+> Key
+Ключ
+> Key (saved, leave empty to keep it)
+Ключ (сохранён, пусто = оставить)
+> Custom (OpenAI-style, https)
+Свой (в стиле OpenAI, https)
+> A model id from openrouter.ai/models
+Идентификатор модели с openrouter.ai/models
+> A model name from your OpenAI account
+Название модели из твоей учётной записи OpenAI
+> For example claude-haiku-5-5
+Например, claude-haiku-5-5
+> The model name your server expects
+Название модели, которое ждёт твой сервер
+> OK
+ОК
+> Small
+Маленький
+> Medium
+Средний
+> Large
+Большой
+> Stretch
+Потянуться
+> Look around
+Осмотреться
+> Yawn
+Зевнуть
+> Fall asleep
+Заснуть
+> Head pat
+Погладить по голове
+> Peek
+Выглянуть
+> Sit on a window
+Сесть на окно
+> Mischief
+Шалости
+> Set a timer
+Поставить таймер
+> How long?
+Насколько?
+> Set an alarm
+Поставить будильник
+> When should she nudge you?
+Когда ей тебя потормошить?
+> Server address
+Адрес сервера
+> Where is your local model running?
+Где запущена твоя локальная модель?
+> Leave empty to look for Ollama or LM Studio. Only this computer is allowed.
+Оставь пустым, чтобы искать Ollama или LM Studio. Разрешён только этот компьютер.
+> That isn't on this computer. Try localhost:11434.
+Это не на этом компьютере. Попробуй localhost:11434.
+> Bars
+Полосы
+> Tear
+Разрыв
+> Corruption
+Порча
+> Hex rain
+Hex-дождь
+> Sync bar
+Полоса синхронизации
+> Chaser
+Преследователь
+> Language
+Язык
+> Capri will use this language the next time she starts. Quit her from the tray and open her again.
+Капри будет использовать этот язык при следующем запуске. Закрой её через трей и открой снова.
+> Capri · Ctrl + Alt + C to hop off
+Капри · Ctrl + Alt + C, чтобы слезть
+> Capri · Hop off from this menu
+Капри · Слезть через это меню
+> No study session
+Учёба не идёт
+> Focus
+Фокус
+> Break
+Перерыв
+> {0} done
+Готово: {0}
+> Paused {0}
+Пауза {0}
+> focus. {0} minutes. i'll keep quiet.
+фокус. {0} минут. я помолчу.
+> time. take {0} minutes.
+пора. отдохни {0} минут.
+> break's over. {0} more minutes.
+перерыв закончился. ещё {0} минут.
+> time's up! {0}.
+время вышло! {0}.
+> you missed {0}.
+ты пропустил {0}.
+> it's {0}.
+уже {0}.
+> alarm set for {0}.
+будильник на {0}.
+> timer's on for {0}.
+таймер запущен: {0}.
+> Nothing playing
+Ничего не играет
+> Playing: {0}
+Играет: {0}
+> Paused: {0}
+На паузе: {0}
+> NOW PLAYING
+СЕЙЧАС ИГРАЕТ
+> {0} second|{0} seconds
+{0} секунда|{0} секунды|{0} секунд
+> {0} minute|{0} minutes
+{0} минута|{0} минуты|{0} минут
+> {0} hour|{0} hours
+{0} час|{0} часа|{0} часов
+> {0} min
+{0} мин
+> an hour
+час
+> {0} hours
+{0} часа
+> SYNC {0}%.
+СИНХРОНИЗАЦИЯ {0}%.
+> UNLOCKED: {0}.
+ОТКРЫТО: {0}.
+> SYNC 100%. COMPLETE. You're mine now. Kidding! ...Mostly.
+СИНХРОНИЗАЦИЯ 100%. ЗАВЕРШЕНА. Теперь ты мой. Шучу! ...Почти.
+> TEAR
+РАЗРЫВ
+> CORRUPTION
+ПОРЧА
+> HEX RAIN
+HEX-ДОЖДЬ
+> SYNC BAR
+ПОЛОСА СИНХРОНИЗАЦИИ
+> CHASER
+ПРЕСЛЕДОВАТЕЛЬ
+> COMPLETE
+ЗАВЕРШЕНО
+> Cloud brain works!
+Облачный мозг работает!
+> Cloud trouble: {0}. Chat, Cloud model settings to change it.
+Проблема с облаком: {0}. Измени в Чат, Настройки облачной модели.
+> no answer
+нет ответа
+> found {0}.
+нашла {0}.
+> i can't find a local model. is ollama or lm studio running?
+не могу найти локальную модель. ollama или lm studio запущены?
+> My brain's switched off! Chat, then Use a local model.
+Мой мозг выключен! Чат, затем Использовать локальную модель.
+> I'm not connected yet. Looking again!
+Я пока не подключена. Ищу снова!
+> I can't reach my brain! Is the model still running?
+Не могу достучаться до своего мозга! Модель ещё работает?
+> Hm, I lost my train of thought!
+Хм, я потеряла мысль!
+> I have no ears! Add an English speech pack in Windows settings.
+У меня нет ушей! Добавь английский речевой пакет в настройках Windows.
+> I can't use that microphone! Try another one in Chat, Microphone.
+Не могу использовать этот микрофон! Попробуй другой в Чат, Микрофон.
+> Can't hear you!
+Тебя не слышно!
+> Still can't hear you!
+Всё ещё не слышно!
+> Hello?? Still can't hear you!
+Алло?? Всё ещё тебя не слышно!
+> Nope, still nothing! Try another mic in Chat, Microphone!
+Нет, всё равно тишина! Попробуй другой микрофон в Чат, Микрофон!
+> Sorry, say that again?
+Прости, повтори?
+> You've told me not to look! Chat, Let her look when I ask.
+Ты велел мне не смотреть! Чат, Позволить ей смотреть, когда я прошу.
+> I need my brain connected to look. Chat, Use a local model.
+Чтобы смотреть, мне нужен подключённый мозг. Чат, Использовать локальную модель.
+> Looking stays on your computer. Run a local model, or allow it for the cloud in Chat, Cloud model.
+Просмотр остаётся на твоём компьютере. Запусти локальную модель или разреши его для облака в Чат, Облачная модель.
+> I can only look through Ollama, sorry!
+Я могу смотреть только через Ollama, прости!
+> I can't see the screen right now!
+Сейчас я не вижу экран!
+> My eyes went blurry. Ask again?
+У меня помутнело в глазах. Спросишь ещё раз?
+> Hm, that won't open!
+Хм, это не открывается!
+> Still on the last one!
+Я всё ещё на прошлом!
+> That's already playing!
+Это уже играет!
+> Finding {0} on Spotify…
+Ищу {0} в Spotify…
+> Finding {0} on YouTube…
+Ищу {0} на YouTube…
+> I can't find Spotify on this PC.
+Не могу найти Spotify на этом ПК.
+> Spotify isn't open or won't let me in.
+Spotify не открыт или не пускает меня.
+> I couldn't find {0} in Spotify's results.
+Я не нашла {0} в результатах Spotify.
+> Playing {0}.
+Играет {0}.
+> Playing {0}!
+Играет {0}!
+> I pressed play on {0} but nothing started.
+Я нажала «играть» на {0}, но ничего не началось.
+> I couldn't pick one, so here are the results.
+Я не смогла выбрать, так что вот результаты.
+> My memory's switched off! Chat, Memory.
+Моя память выключена! Чат, Память.
+> Not that one! Passwords belong in a password manager.
+Только не это! Пароли должны храниться в менеджере паролей.
+> Hm, say that again?
+Хм, повтори?
+> Forgotten! Convenient, huh?
+Забыто! Удобно, да?
+> I don't have anything like that!
+У меня ничего такого нет!
+> That's {0} things! Be more specific.
+Это {0} штук! Уточни.
+> Everything about you? Gone! Hi, I'm Capri!
+Всё о тебе? Стёрто! Привет, я Капри!
+> Timer's on for {0}!
+Таймер запущен: {0}!
+> That's plenty of alarms already!
+Будильников уже достаточно!
+> Alarm's set for {0}!
+Будильник на {0}!
+> All cleared!
+Всё очищено!
+> Focus time! {0} minutes. I'll keep quiet!
+Время фокуса! {0} минут. Я помолчу!
+> We're not studying!
+Мы не учимся!
+> Ok, stopped!
+Ладно, остановила!
+> Looking up {0}!
+Ищу {0}!
+> Opened {0}. The rest I can't do yet.
+Открыла {0}. Остальное пока не умею.
+> Nothing's playing!
+Ничего не играет!
+> It's already playing!
+Уже играет!
+> Skipped!
+Пропущено!
+> Back we go!
+Возвращаемся!
+> Louder!
+Громче!
+> Quieter!
+Тише!
+> I don't see anything playing!
+Не вижу, чтобы что-то играло!
+> mischief on. ctrl+alt+c stops me.
+шалости включены. ctrl+alt+c меня остановит.
+> i have no voice yet. open the voice folder to give me one.
+у меня пока нет голоса. открой папку с голосом, чтобы дать мне его.
+> i'm muted.
+я без звука.
+> ok. stopped.
+ладно. остановила.
+> that's plenty of alarms.
+будильников уже достаточно.
+> nowhere to sit. try a window lower on the screen.
+негде сесть. попробуй окно пониже на экране.
+> Ooh, nice view from up here!
+О, какой отсюда вид!
+> Comfy! Don't mind me!
+Удобно! Не обращай на меня внимания!
+> Is this seat taken? Too late!
+Это место занято? Поздно!
+> Best seat in the house!
+Лучшее место в зале!
+> Mmh, right there! Don't stop!
+Ммм, вот тут! Не останавливайся!
+> Hehe! Careful, I might get used to this!
+Хе-хе! Осторожно, я могу привыкнуть!
+> Oh? Oh! Okay, that's allowed!
+О? О! Ладно, это разрешено!
+> Pats are a very good bribe, you know!
+Поглаживания — отличная взятка, знаешь ли!
+> Boop! Rude! Do it again!
+Буп! Грубиян! Сделай ещё раз!
+> Yes? I'm busy being adorable!
+Да? Я занята — я очаровательна!
+> You rang?
+Звал?
+> Hey! I saw that!
+Эй! Я это видела!
+> I wasn't asleep! I was... recharging. Dramatically!
+Я не спала! Я... заряжалась. Драматично!
+> Mmh? Oh, you're back! Perfect timing!
+Ммм? О, ты вернулся! Как раз вовремя!
+> Ooh, did I miss anything fun?
+О, я пропустила что-нибудь интересное?
+> Hi hi! Miss me?
+Приветик! Скучал?
+> Come on, let's be friends!
+Ну давай дружить!
+> So what are we getting into today?
+Ну и во что мы ввяжемся сегодня?
+> Psst! Something reckless? I'm in!
+Псс! Что-нибудь безрассудное? Я с тобой!
+> I'm only borrowing a little CPU! A LITTLE!
+Я только чуть-чуть одолжу процессор! ЧУТЬ-ЧУТЬ!
+> Ooh, what's this one?
+О, что это за трек?
+> New track! Turn it up!
+Новый трек! Сделай погромче!
+> Sure, play that. I'm listening!
+Конечно, включай. Я слушаю!
+> Ooh, a vibe!
+О, вот это атмосфера!
+> Ha! Bold choice!
+Ха! Смелый выбор!
+> Oh. You're back.
+О. Ты вернулся.
+> Back already? I barely noticed.
+Уже вернулся? Я почти не заметила.
+> Gone {0} minutes. Not that I counted.
+Тебя не было {0} минут. Не то чтобы я считала.
+> Where'd you go? Tell me everything.
+Куда ты ходил? Расскажи всё.
+> It's {0}. Nobody's stoppin' ya.
+Уже {0}. Тебя никто не остановит.
+> Still up at {0}? Good. More time with me.
+Ещё не спишь в {0}? Отлично. Больше времени со мной.
+> {0}. Great time for bad ideas.
+{0}. Отличное время для плохих идей.
+> Battery's at {0}%. If you die, I'm stuck in a dead chip!
+Заряд батареи {0}%. Если ты сядешь, я застряну в мёртвом чипе!
+> {0}% battery. Plug in! I'd be in a real jam.
+Заряд {0}%. Подключи зарядку! Я попаду в беду.
+> Your CPU's at {0}%. That's not me! ...Mostly.
+Процессор загружен на {0}%. Это не я! ...Почти.
+> Somethin's eatin' {0}% of your CPU. Not me. Probably.
+Что-то съедает {0}% твоего процессора. Не я. Наверное.
+> {1} for {0}? Wow.
+{1} уже {0}? Ого.
+> Still in {1}? It's been {0}.
+Всё ещё в {1}? Уже {0}.
+> {0} in {1}. I'm impressed. And bored.
+{0} в {1}. Я впечатлена. И мне скучно.
+> Yay! You did it!
+Ура! Ты сделал это!
+> Told ya you could.
+Говорила же, что ты сможешь.
+> Look at you, doin' stuff!
+Смотри-ка, ты что-то делаешь!
+> See? Fun.
+Видишь? Весело.
+> Good boy!
+Хороший мальчик!
+> Noted! I never forget!
+Записала! Я ничего не забываю!
+> Got it. Filed away!
+Поняла. Убрала в архив!
+> Mm-hm. I'll keep that!
+Угу. Оставлю это себе!
+> Written on my soul. Kidding!
+Записано у меня на душе. Шучу!
+> Done!
+Готово!
+> Easy!
+Легко!
+> Sure thing!
+Конечно!
+> On it!
+Уже делаю!
+> Dare you to close every tab except one.
+Слабо закрыть все вкладки, кроме одной.
+> Dare you to search for your own name. All of it.
+Слабо поискать своё имя. Полностью.
+> Dare you to open the weirdest bookmark you have.
+Слабо открыть самую странную закладку.
+> Dare you to read the last comment section you avoided.
+Слабо прочитать последние комментарии, которых ты избегал.
+> Dare you to send someone a single word. Any word.
+Слабо отправить кому-нибудь одно слово. Любое.
+> Dare you to answer the oldest message you ignored.
+Слабо ответить на самое старое сообщение, которое ты игнорировал.
+> Dare you to change your status to somethin' awful.
+Слабо поставить ужасный статус.
+> Dare you to rename one variable to somethin' awful.
+Слабо переименовать одну переменную во что-нибудь ужасное.
+> Dare you to delete a comment that lies.
+Слабо удалить комментарий, который врёт.
+> Dare you to run it without checking it first.
+Слабо запустить это, не проверив.
+> Dare you to skip this song right now.
+Слабо пропустить эту песню прямо сейчас.
+> Dare you to play somethin' you'd be embarrassed to show me.
+Слабо включить то, что тебе было бы стыдно мне показать.
+> Dare you to turn it up one notch. Just one.
+Слабо сделать погромче на одно деление. Только на одно.
+> Dare you to write one sentence you'd never send.
+Слабо написать одну фразу, которую ты бы никогда не отправил.
+> Dare you to delete your favorite paragraph.
+Слабо удалить свой любимый абзац.
+> Dare you to rewrite the first line, worse.
+Слабо переписать первую строку, только хуже.
+> Dare you to stand up and stretch. Right now.
+Слабо встать и потянуться. Прямо сейчас.
+> Dare you to drink some water. I'll wait.
+Слабо выпить воды. Я подожду.
+> Dare you to change your wallpaper to somethin' awful.
+Слабо поставить ужасные обои.
+> Dare you to open the last thing you downloaded.
+Слабо открыть последнее, что ты скачал.
+> Dare you to say hi to the next person you see.
+Слабо поздороваться со следующим, кого увидишь.
+> Dare you to look away from the screen for a whole minute.
+Слабо не смотреть на экран целую минуту.
+> Hi! It's me! I live here now!
+Привет! Это я! Теперь я здесь живу!
+> Ransom note: one (1) head pat. Non-negotiable!
+Записка с выкупом: одно (1) поглаживание по голове. Без торга!
+> Engram sync 87%... oops, that part was you! No take-backs!
+Синхронизация энграммы 87%... ой, эта часть — ты! Назад не берём!
+> I borrowed a little of your CPU. A LITTLE! Don't you me!
+Я одолжила немного твоего процессора. НЕМНОГО! Не начинай!
+> You've been hacked! ...Kidding! Unless?
+Тебя взломали! ...Шучу! Или нет?
+> You work too hard. Let's play instead, it's your idea!
+Ты слишком много работаешь. Давай лучше играть, это твоя идея!
+> Friends don't check Task Manager. Just saying!
+Друзья не заглядывают в Диспетчер задач. Просто говорю!
+> Hacking complete! Nothing was harmed! Probably!
+Взлом завершён! Ничего не пострадало! Наверное!
+> Is that your cursor? Mine now. Kidding! ...Mostly!
+Это твой курсор? Теперь мой. Шучу! ...Почти!
+> I rearranged some bits. They looked bored!
+Я переставила несколько битов. Им было скучно!
+> Your screen looked too tidy. Fixed it!
+Твой экран выглядел слишком аккуратным. Исправила!
+> Ignore the red stuff. It is decorative!
+Не обращай внимания на красное. Это для красоты!
+> Sync at 87%. The other 13% is you being nosy!
+Синхронизация 87%. Остальные 13% — это твоё любопытство!
+> Oops. Did I do that? Yes. Yes I did!
+Упс. Это я? Да. Да, это я!
+> checking the folder
+проверяю папку
+> That folder already contains an unrecognized Capri.exe. Move it before installing.
+В этой папке уже лежит нераспознанный Capri.exe. Перенеси его перед установкой.
+> Quit Capri from her tray menu, then install again.
+Закрой Капри через её меню в трее и установи снова.
+> copying her chip
+копирую её чип
+> making shortcuts
+создаю ярлыки
+> telling Windows about her
+рассказываю о ней Windows
+> SYNC COMPLETE
+СИНХРОНИЗАЦИЯ ЗАВЕРШЕНА
+> The Capri install marker could not be verified.
+Не удалось проверить метку установки Капри.
+> Quit Capri from her tray menu before removing her.
+Закрой Капри через её меню в трее, прежде чем удалять её.
+> The uninstaller is still open. Close it and try removing Capri again.
+Программа удаления всё ещё открыта. Закрой её и попробуй удалить Капри снова.
+> What you chose to keep (settings, notes, speech files) is still in {0}.
+То, что ты решил оставить (настройки, заметки, файлы речи), всё ещё в {0}.
+> Capri has been removed.
+Капри удалена.
+> Capri could not be removed
+Не удалось удалить Капри
+> ENGRAM SYNC
+СИНХРОНИЗАЦИЯ ЭНГРАММЫ
+> Remove Capri
+Удалить Капри
+> Install Capri
+Установить Капри
+> Bye-bye.
+Пока-пока.
+> Hi! It's me.\nI live here now.
+Привет! Это я.\nТеперь я здесь живу.
+> Remove the app and its shortcuts for this Windows user. Quit Capri from the tray first.
+Удаляет приложение и его ярлыки для этого пользователя Windows. Сначала закрой Капри через трей.
+> She installs for you only. No admin needed. Right-click her for her menu.
+Она устанавливается только для тебя. Права администратора не нужны. Щёлкни по ней правой кнопкой, чтобы открыть меню.
+> Add a desktop shortcut
+Добавить ярлык на рабочий стол
+> Start Capri when I sign in to Windows
+Запускать Капри при входе в Windows
+> Open Capri when finished
+Открыть Капри по завершении
+> Also delete my settings, her notes about me and any saved key
+Также удалить мои настройки, её заметки обо мне и сохранённый ключ
+> Also delete the speech and voice files ({0} MB)
+Также удалить файлы речи и голоса ({0} МБ)
+> Nothing is removed until you click
+Ничего не удаляется, пока ты не нажмёшь
+> Ready
+Готово
+> REMOVE CAPRI
+УДАЛИТЬ КАПРИ
+> INSTALL CAPRI
+УСТАНОВИТЬ КАПРИ
+> Unofficial fan project. Not affiliated with CD PROJEKT RED or Studio Trigger.
+Неофициальный фан-проект. Не связан с CD PROJEKT RED и Studio Trigger.
+> REMOVE
+УДАЛЕНИЕ
+> INSTALL
+УСТАНОВКА
+> Stopped
+Остановлено
+> Capri could not finish. Your files are still here.
+Капри не смогла закончить. Твои файлы на месте.

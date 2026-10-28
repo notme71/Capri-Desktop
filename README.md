@@ -48,7 +48,7 @@ The Chat menu shows which ears are active, "Whisper (small.en)" or "Windows' own
 
 **Is there a Linux or Mac version?** No. She is a Windows app.
 
-**Which languages?** English, Polski, Français, Deutsch, Español, Italiano and Português. See "Languages" below. Not everything works outside English yet: typed and spoken commands and voice input are English only.
+**Which languages?** English, Polski, Français, Deutsch, Español, Italiano, Português, Русский, Čeština and Tiếng Việt. See "Languages" below. Not everything works outside English yet: typed and spoken commands and voice input are English only.
 
 ## What she does
 
@@ -141,7 +141,7 @@ Nothing is bundled. Put `.wav` clips in `%LocalAppData%\Capri\voices` named for 
 
 ## Languages
 
-Her menus, windows, installer and canned lines come in English, Polski, Français, Deutsch, Español, Italiano and Português. Pick one in the tray menu under Language (the installer also asks); it takes effect the next time she starts. The translations are machine-made and have not been checked by native speakers, so some wording may be off. Corrections are welcome.
+Her menus, windows, installer and canned lines come in English, Polski, Français, Deutsch, Español, Italiano, Português, Русский, Čeština and Tiếng Việt. Pick one in the tray menu under Language (the installer also asks); it takes effect the next time she starts. The translations are machine-made and have not been checked by native speakers, so some wording may be off. Corrections are welcome.
 
 With a language chosen, a model is also told to answer in it. How well that works depends on the model: small local models are weaker outside English. Her exact lines from the show, and typed or spoken commands ("set a timer for 10 minutes"), stay in English.
 
